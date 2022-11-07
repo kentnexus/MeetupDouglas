@@ -3,12 +3,16 @@ package com.example.csis3275project.web;
 import org.springframework.stereotype.Service;
 
 import java.util.function.Predicate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class EmailValidator implements Predicate<String> {
     @Override
     public boolean test(String s) {
-        // TODO: Regex to the validate email
-        return true;
+        String regexPattern = "^(.+)@student.douglascollege.ca";
+        return Pattern.compile(regexPattern)
+                .matcher(s)
+                .matches();
     }
 }

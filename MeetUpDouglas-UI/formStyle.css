@@ -1,0 +1,96 @@
+@charset "utf-8";
+/*
+   
+   Project: MeetUp Douglas 
+   Author: Jonnalyn Sule
+   Date:   Nov 6, 2022
+
+   Adjustment Form Layout
+   Filename: formStyle.css
+   
+*/
+
+  
+/* Form Layout Styles */
+form {
+  /* background-color: #fff; */
+  font-size: 1.1em;    
+  }
+
+form#signupform{
+  padding: 30px 20px;
+  width: 40%;
+  height: 100%;
+  margin:auto;
+  }
+
+form#loginform {
+    padding: 30px 20px;
+    width:40%;
+    height: 100%;
+    margin:auto;
+    }
+
+fieldset {
+  color:black;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid white;
+  }
+
+div.formRow {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 15px 0px;
+  }  
+
+
+/* Text Area Styles */
+textarea {
+  margin-top: 15px;
+  width: 99%;
+  } 
+  
+/* Form Button Styles */
+div#buttons {
+  background-color: #C9E265;
+  text-align: center;
+  width: 90%;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  }
+  
+input[type='submit']{
+  font-size: 1em;
+  font-size-adjust: 6vw;
+  padding: 5px;
+  margin: 15px;
+  }
+
+/* Validation Styles */
+input:focus, select:focus, textarea:focus {
+  background-color: #C9E265;
+  }
+
+input#user:focus:valid,
+input#email:focus:valid,
+input#password:focus:valid,
+input#studentid:focus:valid,
+input#mobilenum:focus:valid {
+background: rgb(220, 255, 220) url(valid.png) bottom
+right/contain no-repeat;
+}
+
+input#user:focus:invalid,
+input#email:focus:invalid,
+input#password:focus:invalid,
+input#studentid:focus:invalid,
+input#mobilenum:focus:invalid {
+background: rgb(255, 232, 233) url(invalid.png) bottom
+right/contain no-repeat;
+}

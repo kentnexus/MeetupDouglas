@@ -1,0 +1,68 @@
+@charset "utf-8";
+/*
+   
+   Project: MeetUp Douglas 
+   Author: Jonnalyn Sule
+   Date:   Nov 6, 2022
+
+   Desktop Styles: Default layout. Screen from 769px and greater
+   Filename: BaseLayout.css
+   
+*/
+
+
+
+/* Top Menu Navigation */
+.navbar {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.navbar img {
+  padding-right: 10px;
+  width: auto;
+  height: 60px ;
+  }
+  
+
+.navlist .listitem {
+  display: inline-block;
+}
+
+.navbar2 {
+    /* box-sizing: border-box; */
+    position: absolute;
+    display: flex;
+    height: 43px;
+    left: 65%;
+    right: 12.96%;
+    top: 15px;
+  }
+
+/* Background Image Layout */
+
+.homecontainer {
+    position: relative;
+    width: 100vw;
+    height: 80vh;
+    bottom: 20px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
+  
+  /* Footer Style */
+  footer {
+      padding-bottom: 20px;
+      position: relative;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+  }
+
+  

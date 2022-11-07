@@ -1,0 +1,72 @@
+@charset "utf-8";
+/*
+   Project: MeetUp Douglas 
+   Author: Jonnalyn Sule
+   Date:   Nov 6, 2022
+
+   Desktop Styles: Default layout. Screen from 769px and greater
+   Filename: generalStyle.css
+
+*/
+/* HTML and Body styles */
+
+html {
+    background-color:#FFFFFF;;
+    font-family: 'Gill Sans', 'Gi ll Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+  }
+
+
+.navbar {
+  font-family: 'Gill Sans', 'Gi ll Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+  
+}
+
+
+.navlist .listitem a.active {
+  color: black;
+}
+
+.navlist .listitem a:hover {
+  background-color: #C9E265;
+  color: #4d5628;
+}
+
+.navlist2 .listitem2 a.active {
+background: #FDFAFA;
+border: 1px solid #494747;
+border-radius: 10px;
+font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+}
+
+.navlist2 .listitem2 a.hover {
+    background-color: #C9E265;
+    color: white;
+    }
+
+h2 {
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 35px;
+    }
+   
+
+  /* Footer Style */
+
+  footer {
+   background-color:#C9E265;  
+   font-size: 1.1em;
+   text-align: center;
+   color: black;
+  }
+
+
+ 
+

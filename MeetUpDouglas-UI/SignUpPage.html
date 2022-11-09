@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+       <!--   
+   Home Page of MeetUp Douglas
+   Author: Jonnalyn Sule
+   Date:   November 06, 2022
+   
+   Desktop Styles: 769px and greater
+
+   Filename: SignUpPage.html
+   Disclaimer: No copyright intended. Downloaded pictures and articles in several resources. 
+               Modified and rephrase article content for the purpose of showcasing Project requirements.
+               No intention to publish this content. For any case, I will need to publish, I will put the proper
+               content for the business.
+
+   -->
+
+   <title>MeetUp Douglas SignUpPage</title>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link href = "generalStyle2.css" rel="stylesheet" />
+   <link href = "BaseLayout2.css" rel="stylesheet" />
+   <link href = "resetStyle.css" rel="stylesheet" />
+   <link href = "formStyle.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+             <nav class="navbar">   
+                 <div>
+                    <a href="LoginPage.html"><img src="mdLogo2.png" alt="MeetUp Douglas"></a>
+                 </div>
+             
+                <div id="horizontal">  
+                    <ul class="navlist">
+                        <li class="listitem"><a class="active" href="#">How it works</a></li>
+                    </ul>
+                </div>
+            </nav> 
+            <nav class="navbar2">   
+                <div id="buttons">  
+                    <ul class="navlist2">
+                        <li class="listitem2"><a class="active" href="LoginPage.html">Log in</a></li>
+                    </ul>
+                </div>
+          
+   </header>
+
+ 
+
+   <div class="signupform">
+    <form id="signupform" method="post" >
+        <legend>
+        <h2>Sign Up</h2>
+        </legend>
+        <fieldset id="custInfo">
+        <div class="formRow">
+            <label for="userid">User ID</label>
+            <input name="userid" id="user" type="text" required/>
+        </div>
+        <div class="formRow">
+            <label for="name">Email Address</label>
+            <input name="email" id="email" type="email" required/>
+        </div>
+        <div class="formRow">
+            <label for="Password">Password</label>
+            <input name="Password" id="password" type="email" required />                
+        </div>
+        <div class="formRow">
+            <label for="studentid">Student ID</label>
+            <input name="studentid" id="studentid" type="text" required />
+        </div>
+        <div class="formRow">
+            <label for="mobilenum">Mobile Number</label>
+            <input name="mobilenum" id="mobilenum" type="text" required/>
+        </div>
+        
+        <div class="formRow">
+            <label for="info">Interests</label>
+            <select name="infoSrc" id="info">
+            <option value="(Please select an option)">Freshies</option>
+            <option value="Games">Games and Entertainment</option>
+            <option value="Entrepreneurship">Entrepreneurship</option>
+            <option value="Fitness">Fitness and Wellness</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Study Group">Study Group</option>
+            <option value="Arts">Arts and Crafts</option>
+            <option value="Music">Music</option>
+            <option value="Pets">Pets</option>
+            <option value="Adventure">Adventure and Travels</option>
+            <option value="Shopping">Shopping and Fashion</option>            
+            <option value="Vehicles">Vehicles</option>   
+            <option value="Others">Others</option>        
+            <input name="othercategory" id="othercategory" type="text" placeholder="Others"  />
+            </select>
+        </div>
+        
+
+        </fieldset>
+
+
+        
+        <div id="buttons">
+            <input type="submit" value="Sign Up" />            
+        </div>
+    
+    
+    </form>
+
+   </div>
+
+   <div class="clearfix"></div>
+
+
+</body>
+
+<footer>
+    &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>

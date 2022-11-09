@@ -10,6 +10,9 @@ public class RegisterController {
 
     private final RegistrationService registrationService;
 
+    @GetMapping("/login")
+    public String login(){ return "loginPage";}
+
     @PostMapping
     public String register(@RequestBody RegistrationRequest request){
         return registrationService.register(request);

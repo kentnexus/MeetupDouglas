@@ -1,37 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
-    <title>MeetUpDouglas</title>
 
-    <style>
-        h1{
-            text-align: center;
-        }
-    </style>
+    <!--
+Home Page of MeetUp Douglas
+Author: Jonnalyn Sule
+Date:   November 06, 2022
+
+Desktop Styles: 769px and greater
+
+Filename: LoginPage.html
+Disclaimer: No copyright intended. Downloaded pictures and articles in several resources.
+            Modified and rephrase article content for the purpose of showcasing Project requirements.
+            No intention to publish this content. For any case, I will need to publish, I will put the proper
+            content for the business.
+
+-->
+
+    <title>MeetUp Douglas HomePage</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link th:href="@{css/generalStyle1.css}" rel="stylesheet" />
+    <link th:href="@{css/BaseLayout1.css}" rel="stylesheet" />
+    <link th:href="@{css/formStyle.css}" rel="stylesheet" />
+    <link th:href="@{css/resetStyle.css}" rel="stylesheet" />
 </head>
+
 <body>
-    <h1>Welcome to MeetUpDouglas</h1>
-    <div>
-        <form name="f" th:action="@{/login}" method="post">
-            <fieldset>
-                <legend>Please Login</legend>
-                <div th:if="${param.error}" class="alert alert-error">
-                    Invalid username and password.
-                </div>
-                <div th:if="${param.logout}" class="alert alert-success">
-                    You have been logged out.
-                </div>
-                <label for="username">Username</label>
-                <input type="username" id="username" name="username"/>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password"/>
-                <div class="form-actions">
-                    <button type="submit" class="btn">Log in</button>
-                    <a th:href="@{/registration}">Sign up</a>
-                </div>
-            </fieldset>
-        </form>
-    </div>
+<header>
+    <nav class="navbar">
+        <div>
+            <a th:href="@{/login}"><img th:src="@{images/mdLogo.png}" alt="MeetUp Douglas"></a>
+        </div>
+
+        <div id="horizontal">
+            <ul class="navlist">
+                <li class="listitem"><a class="active" href="#">How it works</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav class="navbar2">
+        <div>
+            <ul class="navlist2">
+                <li class="listitem2"><a class="active" th:href="@{/login}">Log in</a></li>
+                <li class="listitem2"><a class="active" th:href="@{/registration}">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- <div class="homecontainer">
+     <img src="julianunsplash.jpg" >
+</div> -->
+
+<div class="loginform">
+    <form id="loginform" name="f" th:action="@{/login}" method="post">
+        <legend>
+            <h2>Instantly meet new friends within the campus</h2>
+            <p>Have no account yet? <a th:href="@{/registration}" >Sign Up</a></p>
+        </legend>
+        <fieldset id="custInfo">
+
+            <!--
+            <div th:if="${param.error}" class="alert alert-error">
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success">
+                You have been logged out.
+            </div>
+            -->
+            <div class="formRow">
+                <input name="username" id="username" type="username" required placeholder="Email Address"/>
+            </div>
+            <div class="formRow">
+                <input name="password" id="password" type="password" required placeholder="Password"/>
+            </div>
+        </fieldset>
+
+
+
+        <div id="buttons">
+            <input type="submit" value="Log in" />
+        </div>
+
+
+    </form>
+</div>
+
+
 </body>
-</html>
+
+<footer>
+    &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>

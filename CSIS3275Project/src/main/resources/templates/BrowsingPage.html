@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--
+BrowsingPage of MeetUp Douglas
+Author: Jonnalyn Sule
+Date:   November 11, 2022
+
+Desktop Styles: 769px and greater
+
+Filename: BrowsingPage.html
+Disclaimer: No copyright intended. Downloaded pictures and articles in several resources.
+            Modified and rephrase article content for the purpose of showcasing Project requirements.
+            No intention to publish this content. For any case, I will need to publish, I will put the proper
+            content for the business.
+
+-->
+
+    <title>MeetUp Douglas HomePage</title>
+    <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link th:href="@{css/formStyle.css}" rel="stylesheet" />
+    <link th:href="@{css/BaseLayout1.css}" rel="stylesheet" />
+    <link th:href="@{css/generalStyle1.css}" rel="stylesheet" />
+    <link th:href="@{css/gridLayout3.css}" rel="stylesheet" />
+
+
+  </head>
+
+<body>
+<header>
+  <nav class="navbar">
+    <ul>
+      <li><a th:href="@{res/LoginPage.html}"><img th:src="@{images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
+      <!-- <li><a id="hiw" href="Hiw.html" style="margin-right: 500px">How it works</a></li> -->
+      <!-- profile pic and drop down arrow -->
+    </ul>
+  </nav>
+</header>
+
+<div class="bg-img2">
+
+  <div class="browsecontainer">
+    <div class="item1">
+      <h2>What interests you?</h2>
+      <input id="sbar" type="text" placeholder="Search for &quot;photography&quot;">
+      <input id="buttons" type="submit" value="Search" />
+
+    </div>
+
+    <div class="item2">
+      <h2 class="upev">Upcoming Events</h2>
+      <div id="eventcontainer">
+        <div class="event1">
+          <!-- pool all Event Page names here -->
+          <img th:src="@{images/winterreg.jpg}" alt="Event1">
+          <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
+          <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
+        </div>
+        <div class="event2">
+          <img th:src="@{images/winterreg.jpg}" alt="Event1">
+          <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
+          <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
+        </div>
+        <div class="event3">
+          <img th:src="@{images/winterreg.jpg}" alt="Event1">
+          <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
+          <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
+        </div>
+        <div class="event4">
+          <img th:src="@{images/winterreg.jpg}" alt="Event1">
+          <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
+          <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
+        </div>
+        <div class="event5">
+          <img th:src="@{images/winterreg.jpg}" alt="Event1">
+          <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
+          <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
+        </div>
+        <img th:src="@{images/winterreg.jpg}" alt="Event1">
+          <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
+          <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="item3">
+      <h2>Trending Groups</h2>
+      <!-- pool all Group Page names here -->
+      <li><button id = "Grp1">Let's be friends DCmate</button></li>
+      <li><button id = "Grp2">Online English Lessons</button></li>
+      <li><button id = "Grp3">Crazy Van Asian</button> </li>
+      <li><button id = "Grp4">Fiendly Foodies</button> </li>
+      <li><button id = "Grp5">Data Science and Big Data Meetup</button></li>
+      <li><button id = "Grp6">Make International Friends</button></li>
+      <li><button id = "Grp7">Crazy Hikers</button> </li>
+      <li><button id = "Grp8">DSU Dance Club</button> </li>
+      <li><button id = "Grp9">DSU Inspired by Music Club</button> </li>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<footer>
+  &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+
+</body>
+</html>
+

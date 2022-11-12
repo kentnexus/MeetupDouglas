@@ -56,7 +56,7 @@ nav ul li a {
     padding: 5px 16px;
 }
 
-#access {
+#access1, #access, #access2 {
     background: #C9E265;
     box-shadow: 5px 5px #88888886;
     border-radius: 7px;
@@ -65,7 +65,7 @@ nav ul li a {
     margin-left: 10px;
 }
 
-#access:hover {
+#access:hover, #access1:hover, #access2:hover {
     background-color: #ecf5c7f9;
     color: black;
 }

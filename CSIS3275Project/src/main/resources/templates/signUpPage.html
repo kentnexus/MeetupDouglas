@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <!--
 SignUp Page of MeetUp Douglas
 Author: Jonnalyn Sule
@@ -17,9 +16,9 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 
 -->
 
-    <title>MeetUp Douglas SignUpPage</title>
+    <title>SignUp Page</title>
     <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
     <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
@@ -37,9 +36,9 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 <header>
     <nav class="navbar">
         <ul>
-            <li><a href="LoginPage.html"><img src="mdLogo2.png" alt="MeetUp Douglas"></a><li>
-            <li><a id="hiw" href="#" style="margin-right: 500px">How it works</a></li>
-            <li><a id="access" href="LoginPage.html">Log in</a></li>
+            <li><a th:href="@{res/LoginPage.html}"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
+            <li><a id="hiw" th:href="@{res/hiw.html}" style="margin-right: 500px">How it works</a></li>
+            <li><a id="access" th:href="@{res/LoginPage.html}">Log in</a></li>
         </ul>
 
     </nav>
@@ -59,15 +58,15 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
                 <input name="email" id="email" type="email" required/>
             </div>
             <div class="formRow">
-                <label for="Password">Password</label>
+                <label>Password</label>
                 <input name="Password" id="password" type="password" required />
             </div>
             <div class="formRow">
-                <label for="studentid">Student ID</label>
+                <label>Student ID</label>
                 <input name="studentid" id="studentid" type="text" required />
             </div>
             <div class="formRow">
-                <label for="mobilenum">Mobile Number</label>
+                <label>Mobile Number</label>
                 <input name="mobilenum" id="mobilenum" type="text" required/>
             </div>
 

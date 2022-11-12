@@ -17,9 +17,9 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 
 -->
 
-    <title>MeetUp Douglas HomePage</title>
+    <title>Home Page</title>
     <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link th:href="@{css/generalStyle1.css}" rel="stylesheet" />
     <link th:href="@{css/BaseLayout1.css}" rel="stylesheet" />
@@ -31,11 +31,11 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 <header>
     <nav class="navbar">
         <ul>
-            <li><a href="LoginPage.html"><img src="mdLogo.png" alt="MeetUp Douglas"></a></li>
+            <li><a th:href="@{res/LoginPage.html}"><img th:src="@{images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
             <li><a id="hiw" href="#" style="margin-right: 500px">How it works</a></li>
             <div id="access">
-            <li><a  href="LoginPage.html">Log in</a></li>
-            <li><a  href="SignUpPage.html">Sign Up</a></li>
+            <li><a  th:href="@{res/LoginPage.html}">Log in</a></li>
+            <li><a  th:href="@{res/SignUpPage.html}">Sign Up</a></li>
             </div>
         </ul>
     </nav>
@@ -65,9 +65,6 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
                 <input name="password" id="password" type="password" required placeholder="Password"/>
             </div>
         </fieldset>
-
-
-
         <div id="buttons">
             <input type="submit" value="Log in" />
         </div>

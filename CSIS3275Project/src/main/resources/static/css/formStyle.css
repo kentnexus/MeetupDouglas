@@ -10,80 +10,73 @@
    
 */
 
-  
 /* Form Layout Styles */
-form {
-  /* background-color: #fff; */
-  font-size: 1.1em;    
-  }
-
+/* Form Layout Styles */
 form#signupform{
   padding: 30px 20px;
   width: 40%;
   height: 100%;
   margin:auto;
-  }
+}
 
 form#loginform {
-    padding: 30px 20px;
-    width:40%;
-    height: 100%;
-    margin:auto;
-    }
+  width:30%;
+  position: absolute;
+  margin: 30px;
+  min-height: 380px;
+  padding: 30px 20px;
+  background-color: rgba(255, 255, 255, 0.815);
+  border-radius: 20px;
+  box-shadow: 5px 5px #88888853;
+}
 
 fieldset {
-  color:black;
   padding: 20px;
-  margin: 10px;
-  border: 1px solid white;
-  }
+  margin: 10px 0px;
+  border: none;
+}
 
-div.formRow {
+.formRow {
   display: flex;
   flex-flow: column wrap;
-  margin: 15px 0px;
-  }  
+  margin: 10px 0px;
+}
 
-
-/* Text Area Styles */
-textarea {
-  margin-top: 15px;
-  width: 99%;
-  } 
-  
 /* Form Button Styles */
-div#buttons {
+#loginBtn {
   background-color: #C9E265;
-  text-align: center;
-  width: 90%;
-  border: 1px solid white;
   border-radius: 5px;
-  font-family: inherit;
-  font-size: 16px;
-  width: 100%;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  }
-  
+  font-size: 1.5em;
+  outline: none;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 92%;
+  opacity: 0.9;
+}
+
+#loginBtn:hover {
+  background-color: #9bac55;
+}
+
 input[type='submit']{
   font-size: 1em;
-  font-size-adjust: 6vw;
   padding: 5px;
   margin: 15px;
-  }
+}
 
 /* Validation Styles */
 input:focus, select:focus, textarea:focus {
-  background-color: #C9E265;
-  }
+  background-color: #9a9b94;
+}
 
 input#user:focus:valid,
 input#email:focus:valid,
 input#password:focus:valid,
 input#studentid:focus:valid,
 input#mobilenum:focus:valid {
-background: rgb(220, 255, 220) url(valid.png) bottom
-right/contain no-repeat;
+  background: rgb(220, 255, 220) url("static/images/valid.png") bottom
+  right/contain no-repeat;
 }
 
 input#user:focus:invalid,
@@ -91,6 +84,6 @@ input#email:focus:invalid,
 input#password:focus:invalid,
 input#studentid:focus:invalid,
 input#mobilenum:focus:invalid {
-background: rgb(255, 232, 233) url(invalid.png) bottom
-right/contain no-repeat;
+  background: rgb(255, 232, 233) url("static/images/invalid.png") bottom
+  right/contain no-repeat;
 }

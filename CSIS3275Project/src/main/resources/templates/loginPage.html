@@ -18,47 +18,36 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 -->
 
     <title>MeetUp Douglas HomePage</title>
+    <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link th:href="@{css/generalStyle1.css}" rel="stylesheet" />
     <link th:href="@{css/BaseLayout1.css}" rel="stylesheet" />
     <link th:href="@{css/formStyle.css}" rel="stylesheet" />
-    <link th:href="@{css/resetStyle.css}" rel="stylesheet" />
+
 </head>
 
 <body>
 <header>
     <nav class="navbar">
-        <div>
-            <a th:href="@{/login}"><img th:src="@{images/mdLogo.png}" alt="MeetUp Douglas"></a>
-        </div>
-
-        <div id="horizontal">
-            <ul class="navlist">
-                <li class="listitem"><a class="active" href="#">How it works</a></li>
-            </ul>
-        </div>
-    </nav>
-    <nav class="navbar2">
-        <div>
-            <ul class="navlist2">
-                <li class="listitem2"><a class="active" th:href="@{/login}">Log in</a></li>
-                <li class="listitem2"><a class="active" th:href="@{/registration}">Sign Up</a></li>
-            </ul>
-        </div>
+        <ul>
+            <li><a href="LoginPage.html"><img src="mdLogo.png" alt="MeetUp Douglas"></a></li>
+            <li><a id="hiw" href="#" style="margin-right: 500px">How it works</a></li>
+            <div id="access">
+            <li><a  href="LoginPage.html">Log in</a></li>
+            <li><a  href="SignUpPage.html">Sign Up</a></li>
+            </div>
+        </ul>
     </nav>
 </header>
 
-<!-- <div class="homecontainer">
-     <img src="julianunsplash.jpg" >
-</div> -->
 
-<div class="loginform">
-    <form id="loginform" name="f" th:action="@{/login}" method="post">
-        <legend>
-            <h2>Instantly meet new friends within the campus</h2>
-            <p>Have no account yet? <a th:href="@{/registration}" >Sign Up</a></p>
-        </legend>
+<div class="bg-img">
+
+    <form id="loginform" name="f" th:action="@{/login}" action="/action_page.php">
+        <h2>Instantly meet new friends within the campus</h2>
+        <p>Have no account yet? <a th:href="@{/registration}" >Sign Up</a></p>
+
         <fieldset id="custInfo">
 
             <!--
@@ -93,3 +82,4 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 <footer>
     &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
 </footer>
+</html>

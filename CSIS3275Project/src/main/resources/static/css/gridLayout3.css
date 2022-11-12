@@ -1,0 +1,139 @@
+@charset "UTF-8";
+/*
+
+   Project: MeetUp Douglas
+   Author: Jonnalyn Sule
+   Date:   Nov 11, 2022
+*/
+
+.browsecontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.1fr 1.3fr 1.3fr;
+    gap: 20px 20px;
+    grid-template-areas:
+    "a a a a"
+    "b b b c"
+    "b b b c";
+    padding: 30px;
+}
+
+.browsecontainer h2{
+    text-align: left;
+    padding: 20px;
+}
+
+.item1 {
+    grid-area: a;
+    display: inline-flex;
+}
+
+.item2 {
+    grid-area: b;
+}
+
+
+.item3 {
+    grid-area: c;
+}
+
+.item2, .item3 {
+    padding-bottom: 10px;
+}
+
+
+
+
+.item1, .item2, .item3 {
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 20px;
+    box-shadow: 5px 5px 7px #88888853;
+}
+
+.item1 input{
+    width: 30%;
+    padding-left: 10px;
+    margin: 30px;
+}
+
+
+#buttons {
+    background-color: #C9E265;
+    text-align: center;
+    padding: 20px;
+    margin: 30px;
+    font-size: 20px;
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    box-shadow: 5px 5px 7px #88888886;
+    border-radius: 7px;
+    border: none;
+    width:180px;
+}
+
+#buttons:hover {
+    background-color: #c9e26554;
+    cursor: grab;
+}
+
+/* Events Gallery */
+#eventcontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px 20px;
+    grid-template-areas:
+      "1 2 3"
+      "4 5 6";
+    padding: 20px;
+}
+
+#eventcontainer h3 {
+    font-size: 16px;
+    line-height: 0%;
+}
+
+#eventcontainer h4 {
+    font-size: 12px;
+    line-height: 0%;
+}
+
+.event1, .event2, .event3, .event4, .event5, .event6 {
+    background-color:rgb(247, 252, 247) ;
+    box-shadow: 5px 5px 7px #88888886;
+    border-radius: 7px;
+    border: black;
+    padding: 10px;
+}
+
+.event1:hover, .event2:hover, .event3:hover, .event4:hover, .event5:hover, .event6:hover {
+    background-color:#c9e2659e ;
+    cursor: pointer;
+}
+
+#eventcontainer img{
+    min-width:100px;
+    max-width:100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+
+.item3 li {
+    list-style: none;
+    margin: 10px 20px;
+
+}
+.item3 li button {
+    padding: 14px 20px;
+    cursor: pointer;
+    background-color: #C9E265;
+    box-shadow: 5px 5px 7px #88888886;
+    border-radius: 7px;
+    border: 10px;
+
+}
+
+footer{
+    margin-top: 50px;
+}

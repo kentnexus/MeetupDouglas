@@ -70,6 +70,10 @@ nav ul li a {
     color: black;
 }
 
+/*Search Bar*/
+#sbar {
+    background-color: white;
+}
 
 /* Footer Style */
 footer {
@@ -77,6 +81,5 @@ footer {
     font-size: 1.1em;
     color: black;
     text-align: center;
-
 }
 

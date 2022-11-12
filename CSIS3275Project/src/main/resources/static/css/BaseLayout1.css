@@ -23,17 +23,18 @@
 .navbar {
     display: flex;
 }
-.navbar ul {
+
+/* .navbar ul {
     display: flex;
-}
+} */
 
 .navbar ul li {
     display: inline-block;
 }
 
-.navbar ul li a {
+/* .navbar ul li a {
     display: inline-flex;
-}
+} */
 
 .navbar ul li a img {
     width: auto;

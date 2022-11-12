@@ -21,20 +21,32 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
     <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link th:href="@{css/formStyle.css}" rel="stylesheet" />
-    <link th:href="@{css/BaseLayout1.css}" rel="stylesheet" />
-    <link th:href="@{css/generalStyle1.css}" rel="stylesheet" />
-    <link th:href="@{css/gridLayout3.css}" rel="stylesheet" />
-
-
+    <link href="@{css/BaseLayout1.css}" rel="stylesheet" />
+    <link href="@{css/generalStyle1.css}" rel="stylesheet" />
+    <link href="@{css/gridLayout3.css}" rel="stylesheet" />
+    <link href="@{css/browsing.css}" rel="stylesheet"/>
+    <script src="@{js/jsFunctions.js}"></script>
   </head>
 
 <body>
 <header>
   <nav class="navbar">
     <ul>
-      <li><a th:href="@{res/LoginPage.html}"><img th:src="@{images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
+      <li><a src="LoginPage.html"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
       <!-- <li><a id="hiw" href="Hiw.html" style="margin-right: 500px">How it works</a></li> -->
       <!-- profile pic and drop down arrow -->
+      <li id="profile">
+        <img th:src="@{images/profilePic.jpg}">
+        <i class="arrow down" onclick="myFunction()"></i>
+            <div class="dropdown">
+                <div id="myDropdown" class="dropdown-content" >
+                    <a href="#">Profile</a>
+                    <a href="#">Group</a>
+                    <a href="#">Event</a>
+                    <a href="#">Log out</a>
+                </div>
+            </div>
+          </li>
     </ul>
   </nav>
 </header>
@@ -43,41 +55,43 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 
   <div class="browsecontainer">
     <div class="item1">
-      <h2>What interests you?</h2>
-      <input id="sbar" type="text" placeholder="Search for &quot;photography&quot;">
-      <input id="buttons" type="submit" value="Search" />
-
+      <div class="interests">
+        <h2>What interests you?</h2>
+        <input id="sbar" type="text" placeholder="Search for &quot;photography&quot;">
+        <input id="buttons" type="submit" value="Search" />
+      </div>
     </div>
 
     <div class="item2">
       <h2 class="upev">Upcoming Events</h2>
       <div id="eventcontainer">
-        <div class="event1">
+        <div class="event-1">
           <!-- pool all Event Page names here -->
           <img th:src="@{images/winterreg.jpg}" alt="Event1">
           <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
           <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
         </div>
-        <div class="event2">
+        <div class="event-2">
           <img th:src="@{images/winterreg.jpg}" alt="Event1">
           <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
           <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
         </div>
-        <div class="event3">
+        <div class="event-3">
           <img th:src="@{images/winterreg.jpg}" alt="Event1">
           <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
           <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
         </div>
-        <div class="event4">
+        <div class="event-4">
           <img th:src="@{images/winterreg.jpg}" alt="Event1">
           <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
           <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
         </div>
-        <div class="event5">
+        <div class="event-5">
           <img th:src="@{images/winterreg.jpg}" alt="Event1">
           <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
           <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
         </div>
+        <div class="event-6">
         <img th:src="@{images/winterreg.jpg}" alt="Event1">
           <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
           <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
@@ -89,15 +103,15 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
     <div class="item3">
       <h2>Trending Groups</h2>
       <!-- pool all Group Page names here -->
-      <li><button id = "Grp1">Let's be friends DCmate</button></li>
-      <li><button id = "Grp2">Online English Lessons</button></li>
-      <li><button id = "Grp3">Crazy Van Asian</button> </li>
-      <li><button id = "Grp4">Fiendly Foodies</button> </li>
-      <li><button id = "Grp5">Data Science and Big Data Meetup</button></li>
-      <li><button id = "Grp6">Make International Friends</button></li>
-      <li><button id = "Grp7">Crazy Hikers</button> </li>
-      <li><button id = "Grp8">DSU Dance Club</button> </li>
-      <li><button id = "Grp9">DSU Inspired by Music Club</button> </li>
+      <li><button id = "grp-1">Let's be friends DCmate</button></li>
+      <li><button id = "grp-2">Online English Lessons</button></li>
+      <li><button id = "grp-3">Crazy Van Asian</button> </li>
+      <li><button id = "grp-4">Fiendly Foodies</button> </li>
+      <li><button id = "grp-5">Data Science and Big Data Meetup</button></li>
+      <li><button id = "grp-6">Make International Friends</button></li>
+      <li><button id = "grp-7">Crazy Hikers</button> </li>
+      <li><button id = "grp-8">DSU Dance Club</button> </li>
+      <li><button id = "grp-9">DSU Inspired by Music Club</button> </li>
     </div>
 
   </div>

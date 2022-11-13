@@ -11,22 +11,23 @@
 */
 /* Background Image Layout */
 .bg-img {
-    background-image: url("static/images/julianunsplash.jpg");
+    /* background-image: url("../images/julianunsplash.jpg"); */
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
     position: relative;
 }
 
 /* Top Menu Navigation */
 .navbar {
     display: flex;
+    background-color:#C9E265;
 }
 
-/* .navbar ul {
+.navbar ul {
     display: flex;
-} */
+}
 
 .navbar ul li {
     display: inline-block;
@@ -42,7 +43,7 @@
 }
 /* Footer Style */
 footer {
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
     position: relative;
     left: 0;
     bottom: 0;

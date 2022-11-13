@@ -31,7 +31,7 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
     <header>
         <nav class="navbar">
             <ul>
-                <li><a th:href="@{res/LoginPage.html}"><img th:src="@{images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
+                <li><a th:href="@{/login}"><img th:src="@{images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
                 <li><a id="hiw" href="#" style="margin-right: 500px">How it works</a></li>
                 <div id="access">
                 <li><a  th:href="@{/login}">Log in</a></li>
@@ -44,7 +44,7 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 
 <div class="bg-img">
 
-    <form id="loginform" name="f" th:action="@{/login}" action="/action_page.php">
+    <form id="loginform" name="f" th:action="@{/login}" method="post">
         <h2>Instantly meet new friends within the campus</h2>
         <p>Have no account yet? <a th:href="@{/registration}" >Sign Up</a></p>
 

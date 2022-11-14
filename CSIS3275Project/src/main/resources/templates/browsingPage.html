@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
     <!--
 BrowsingPage of MeetUp Douglas
 Author: Jonnalyn Sule
@@ -9,7 +9,7 @@ Date:   November 11, 2022
 
 Desktop Styles: 769px and greater
 
-Filename: BrowsingPage.html
+Filename: browsingPage.html
 Disclaimer: No copyright intended. Downloaded pictures and articles in several resources.
             Modified and rephrase article content for the purpose of showcasing Project requirements.
             No intention to publish this content. For any case, I will need to publish, I will put the proper
@@ -32,18 +32,18 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 <header>
   <nav class="navbar">
     <ul>
-      <li><a th:src="LoginPage.html"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
+      <li><a th:src="LoginPage.html"><img th:src="@{images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
       <!-- <li><a id="hiw" href="Hiw.html" style="margin-right: 500px">How it works</a></li> -->
       <!-- profile pic and drop down arrow -->
       <li id="profile">
-        <img th:src="@{images/profilePic.jpg}">
+        <img th:src="@{images/profilepic.png}">
         <i class="arrow down" onclick="myFunction()"></i>
             <div class="dropdown">
                 <div id="myDropdown" class="dropdown-content" >
                     <a href="#">Profile</a>
                     <a href="#">Group</a>
                     <a href="#">Event</a>
-                    <a href="#">Log out</a>
+                    <a th:href="@{/logout}">Log out</a>
                 </div>
             </div>
           </li>
@@ -65,36 +65,18 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
     <div class="item2">
       <h2 class="upev">Upcoming Events</h2>
       <div id="eventcontainer">
-        <div class="event-1">
-          <!-- pool all Event Page names here -->
-          <img th:src="@{images/winterreg.jpg}" alt="Event1">
-          <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
-          <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
-        </div>
-        <div class="event-2">
-          <img th:src="@{images/winterreg.jpg}" alt="Event1">
-          <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
-          <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
-        </div>
-        <div class="event-3">
-          <img th:src="@{images/winterreg.jpg}" alt="Event1">
-          <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
-          <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
-        </div>
-        <div class="event-4">
-          <img th:src="@{images/winterreg.jpg}" alt="Event1">
-          <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
-          <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
-        </div>
-        <div class="event-5">
-          <img th:src="@{images/winterreg.jpg}" alt="Event1">
-          <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
-          <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
-        </div>
-        <div class="event-6">
-        <img th:src="@{images/winterreg.jpg}" alt="Event1">
-          <h3><strong>MON, OCT 31, 2022, 9:00 am - 11:00 am</strong></h3>
-          <h4>HOW TO GET WINTER 2023 REGISTRATION INFORMATION</h4>
+        <div  th:each="event:${listEvents}" th:class="'event-'+${event.getId()}">
+            <img th:src="@{images/winterreg.jpg}" th:alt="'Event'+${event.getId()}">
+<!--            <p th:text="${event.getDate()}+' '+${event.getTime_start()}+' '+${event.getTime_start()}"></p>-->
+<!--            <p th:text="${event.getName()}.toUpperCase()"></p>-->
+            <h3>
+                <span th:text="${#dates.format(event.getDate(), 'EEE MMM dd, yyyy')+
+                                ' '+ event.getTime_start()+
+                                ' - '+ event.getTime_end()}"></span>
+            </h3>
+            <h4>
+                <span th:text="${event.getName().toUpperCase()}"></span>
+            </h4>
         </div>
       </div>
     </div>
@@ -103,15 +85,12 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
     <div class="item3">
       <h2>Trending Groups</h2>
       <!-- pool all Group Page names here -->
-      <li><button id = "grp-1">Let's be friends DCmate</button></li>
-      <li><button id = "grp-2">Online English Lessons</button></li>
-      <li><button id = "grp-3">Crazy Van Asian</button> </li>
-      <li><button id = "grp-4">Fiendly Foodies</button> </li>
-      <li><button id = "grp-5">Data Science and Big Data Meetup</button></li>
-      <li><button id = "grp-6">Make International Friends</button></li>
-      <li><button id = "grp-7">Crazy Hikers</button> </li>
-      <li><button id = "grp-8">DSU Dance Club</button> </li>
-      <li><button id = "grp-9">DSU Inspired by Music Club</button> </li>
+      <table class="trending-groups">
+          <tbody>
+          <tr th:each="group:${listGroups}">
+          <td><button th:id="'grp-'+${group.getId()}" th:text="${group.getName()}"></button></td>
+          </tbody>
+      </table>
     </div>
 
   </div>

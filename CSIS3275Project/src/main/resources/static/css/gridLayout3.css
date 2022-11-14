@@ -127,17 +127,19 @@ div[class^="event-"]:hover {
 button[id^="grp-"]:hover {
     background-color:#c9e2659e ;
     cursor: pointer;
+    margin: auto;
 }
 
 /*  */
 
 
-.item3 li {
+.item3 td {
     list-style: none;
     margin: 10px 20px;
 
 }
-.item3 li button {
+.item3 td button {
+    margin-left: 15px;
     padding: 14px 20px;
     cursor: pointer;
     background-color: #C9E265;

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+Create Event Page of MeetUp Douglas
+Author: Jonnalyn Sule
+Date:   November 16, 2022
+
+Desktop Styles: 769px and greater
+
+Filename: Create_EventPage.html
+Disclaimer: No copyright intended. Downloaded pictures and articles in several resources.
+          Modified and rephrase article content for the purpose of showcasing Project requirements.
+          No intention to publish this content. For any case, I will need to publish, I will put the proper
+          content for the business.
+
+-->
+
+  <title>Create Event Page</title>
+  <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
+  <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+- <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
+  <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
+  <link th:href="@{css/formStyle.css}" rel="stylesheet" />
+<!--  <link href="generalStyle2.css" rel="stylesheet" />-->
+<!--  <link href="BaseLayout2.css" rel="stylesheet" />-->
+<!--  <link href="formStyle.css" rel="stylesheet" />-->
+
+</head>
+
+<body>
+<header>
+  <nav class="navbar">
+    <ul>
+     <li><a th:href="@{res/LoginPage.html}"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
+      <li><a id="hiw" th:href="@{res/hiw.html}" style="margin-right: 500px">How it works</a></li>
+
+<!--      <li><a href="LoginPage.html"><img src="mdLogo2.png" alt="MeetUp Douglas"></a><li>-->
+<!--      <li><a id="hiw" href="hiw.html}" style="margin-right: 500px">How it works</a></li>-->
+
+    </ul>
+
+  </nav>
+</header>
+<div class="grppage">
+  <form id="grppageform" action="/action_page.php" >
+    <h2>Let's start creating your event</h2>
+    <fieldset id="eventInfo">
+      <div class="formRow">
+        <label>Name your Event</label>
+        <input name="eventname" id="eventname" type="text" required/>
+      </div>
+      <div class="formRow">
+        <label>Describe your Event</label>
+        <textarea name="about" id="about" type="textarea"  rows="8" cols="50" required>
+                </textarea>
+      </div>
+
+      <div class="formRow">
+        <label>Hosted by Group</label>
+        <select name="tagGroup" id="tagGroup">
+          <option value="(Please select an option)">(Please select an option)</option>
+          <!-- retrieve your group names here -->
+          <option value="Grp1">Let's be friends DCMate</option>
+          <option value="Grp2">Online English Lessons</option>
+          <option value="Grp3">Crazy Van Asian</option>
+          <option value="Grp4">Friendly Foodies</option>
+          <option value="Grp5">Data Science and Big Data Meetup</option>
+          <option value="Grp6">Make International Friends</option>
+          <option value="Grp7">Crazy Hikers</option>
+        </select>
+      </div>
+
+      <div class="formrow">
+        <label>Schedule</label>
+        <input type="date" id="eventsched" name="eventsched" required>
+      </div>
+
+      <div class="formrow">
+        <label>From</label>
+        <input type="time" id="eventstart" name="eventstart" required>
+      </div>
+
+      <div class="formrow">
+        <label>To</label>
+        <input type="time" id="eventend" name="eventend" required>
+      </div>
+
+      <div class="formRow">
+        <label>Frequency</label>
+        <select name="eventfreq" id="eventfreq">
+          <option>(Please select an option)</option>
+          <option>Daily</option>
+          <option>Weekly</option>
+          <option>Bi-weekly</option>
+          <option>Monthly</option>
+          <option>Quarterly</option>
+          <option>Yearly</option>
+        </select>
+      </div>
+
+      <div id="buttons">
+        <input  type="submit" value="Create Event" />
+      </div>
+
+    </fieldset>
+  </form>
+</div>
+</body>
+
+<footer>
+  &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+
+</html>
+
+

@@ -12,11 +12,12 @@
 
 /* Form Layout Styles */
 /* Form Layout Styles */
-form#signupform{
+form#signupform, form#grppageform , form#eventpageform{
   padding: 30px 20px;
   width: 40%;
   height: 100%;
   margin:auto;
+
 }
 
 form#loginform {
@@ -43,7 +44,7 @@ fieldset {
 }
 
 /* Form Button Styles */
-#loginBtn {
+#loginBtn,buttons {
   background-color: #C9E265;
   border-radius: 5px;
   font-size: 1.5em;
@@ -55,7 +56,7 @@ fieldset {
   opacity: 0.9;
 }
 
-#loginBtn:hover {
+#loginBtn:hover, buttons:hover {
   background-color: #9bac55;
 }
 

@@ -36,64 +36,43 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 <header>
     <nav class="navbar">
         <ul>
-            <li><a th:href="@{res/LoginPage.html}"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
-            <li><a id="hiw" th:href="@{res/hiw.html}" style="margin-right: 500px">How it works</a></li>
-            <li><a id="access" th:href="@{res/LoginPage.html}">Log in</a></li>
+            <li><a th:href="@{/login}"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
+            <li><a id="hiw" th:href="@{/howItWork}"  style="margin-right: 500px">How it works</a></li>
+            <li><a id="access" th:href="@{/login}">Log in</a></li>
         </ul>
 
     </nav>
 </header>
 <div class="signupform">
-    <form id="signupform" method="post" >
+    <form id="signupform" th:action="@{/api/v1/registration/process_register}" method="post">
         <legend>
             <h2>Sign Up</h2>
         </legend>
         <fieldset id="custInfo">
             <div class="formRow">
-                <label>User ID</label>
-                <input name="userid" id="user" type="text" required/>
+                <label for="firstName">First Name</label>
+                <input name="firstName" id="firstName" type="text" required/>
             </div>
             <div class="formRow">
-                <label>Email Address</label>
+                <label for="lastName">Last Name</label>
+                <input name="lastName" id="lastName" type="text" required/>
+            </div>
+            <div class="formRow">
+                <label for="email">Email Address (Please only use Douglas college email.)</label>
                 <input name="email" id="email" type="email" required/>
             </div>
             <div class="formRow">
-                <label>Password</label>
-                <input name="Password" id="password" type="password" required />
-            </div>
-            <div class="formRow">
-                <label>Student ID</label>
-                <input name="studentid" id="studentid" type="text" required />
-            </div>
-            <div class="formRow">
-                <label>Mobile Number</label>
-                <input name="mobilenum" id="mobilenum" type="text" required/>
+                <label for="password">Password</label>
+                <input name="password" id="password" type="password" required />
             </div>
 
-            <div class="formRow">
-                <label for="info">Interests</label>
-                <select name="infoSrc" id="info">
-                    <option value="(Please select an option)">Freshies</option>
-                    <option value="Games">Games and Entertainment</option>
-                    <option value="Entrepreneurship">Entrepreneurship</option>
-                    <option value="Fitness">Fitness and Wellness</option>
-                    <option value="Social Media">Social Media</option>
-                    <option value="Study Group">Study Group</option>
-                    <option value="Arts">Arts and Crafts</option>
-                    <option value="Music">Music</option>
-                    <option value="Pets">Pets</option>
-                    <option value="Adventure">Adventure and Travels</option>
-                    <option value="Shopping">Shopping and Fashion</option>
-                    <option value="Vehicles">Vehicles</option>
-                    <option value="Others">Others</option>
-                    <input name="othercategory" id="othercategory" type="text" placeholder="Others"  />
-                </select>
-            </div>
-
+            <!--
             <div id="buttons">
                 <input  type="submit" value="Sign Up" onclick="myFunction()" />
             </div>
+            -->
 
+            <button type="submit">Submit</button>
         </fieldset>
     </form>
 </div>

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -40,5 +41,17 @@ public class BrowsingController {
         model.addAttribute("listEvents", topEvents);
 
         return "browsingPage";
+    }
+    @GetMapping("/event/{event}")
+    public String eventPage(Model model, @PathVariable String event){
+        String name = "This is " + event + " group.";
+        model.addAttribute("event",name);
+
+        return "eventPage";
+    }
+
+    @GetMapping("/event/create")
+    public String createEvent(){
+        return "Create_EventPage";
     }
 }

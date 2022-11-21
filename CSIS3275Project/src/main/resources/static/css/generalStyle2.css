@@ -24,12 +24,17 @@ h2 {
 }
 
 /* Top Menu Navigation */
-/* Top Menu Navigation */
-.navbar {
-    background-color:white;
+.navbar{
+    background-color:#C9E265;
+}
+
+.navbar ul {
+    display: flex;
+    width: 100%;
 }
 
 .navbar ul li {
+    background-color:#C9E265;
     color: black;
     font-family: 'Gill Sans', 'Gi ll Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -37,42 +42,60 @@ h2 {
 nav ul li a {
     list-style: none;
     text-decoration: none;
-    width: 100%;
+    width: auto;
     font-size: 20px;
+}
 
+.nav img {
+    display: inline-flex;
+    color: black;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 20px
 }
 
 #hiw {
+    /* background-color: #C9E265; */
+    display: inline-flex;
     color: black;
-    padding: 5px 16px;
-    margin-top:10px;
-    margin-left: 40px;
-
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 20px
 }
 
 #hiw:hover {
-    background-color: #a0ac70;
     color: white;
-    padding: 5px 16px;
-}
-
-#access1, #access, #access2 {
-    background: #C9E265;
-    box-shadow: 5px 5px #88888886;
-    border-radius: 7px;
-    padding: 5px 10px;
-    margin-top:10px;
-    margin-left: 10px;
-}
-
-#access:hover, #access1:hover, #access2:hover {
-    background-color: #ecf5c7f9;
-    color: black;
 }
 
 #access {
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: 50px;
+}
+
+#access li {
+    background: #FDFAFA;
+    display: inline-flex;
+    color: black;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 0.3em;
+    width: 100px;
+    height: 30px;
+    margin-left:10px;
+}
+
+#access li a {
+    margin: auto;
+}
+
+#access li:hover {
+    background-color: #ecf5c7f9;
 }
 
 /*Search Bar*/

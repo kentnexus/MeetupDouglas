@@ -33,11 +33,12 @@
 
 /* Footer Style */
 footer {
-    padding-bottom: 20px;
-    position: relative;
+    /*padding-bottom: 20px;*/
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
+    text-align: center;
 }
 
   

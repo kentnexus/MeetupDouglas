@@ -20,12 +20,12 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
   <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
   <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-- <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
-  <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
-  <link th:href="@{css/formStyle.css}" rel="stylesheet" />
-<!--  <link href="generalStyle2.css" rel="stylesheet" />-->
-<!--  <link href="BaseLayout2.css" rel="stylesheet" />-->
-<!--  <link href="formStyle.css" rel="stylesheet" />-->
+  <link th:href="@{/css/generalStyle1.css}" rel="stylesheet" />
+  <link th:href="@{/css/BaseLayout1.css}" rel="stylesheet" />
+  <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
+  <!--  <link href="generalStyle2.css" rel="stylesheet" />-->
+  <!--  <link href="BaseLayout2.css" rel="stylesheet" />-->
+  <!--  <link href="formStyle.css" rel="stylesheet" />-->
 
 </head>
 
@@ -33,11 +33,11 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 <header>
   <nav class="navbar">
     <ul>
-     <li><a th:href="@{res/LoginPage.html}"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
-      <li><a id="hiw" th:href="@{res/hiw.html}" style="margin-right: 500px">How it works</a></li>
+      <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
+      <li><a id="hiw" th:href="@{/howitworks}" style="margin-right: 500px">How it works</a></li>
 
-<!--      <li><a href="LoginPage.html"><img src="mdLogo2.png" alt="MeetUp Douglas"></a><li>-->
-<!--      <li><a id="hiw" href="hiw.html}" style="margin-right: 500px">How it works</a></li>-->
+      <!--      <li><a href="LoginPage.html"><img src="mdLogo2.png" alt="MeetUp Douglas"></a><li>-->
+      <!--      <li><a id="hiw" href="hiw.html}" style="margin-right: 500px">How it works</a></li>-->
 
     </ul>
 
@@ -109,7 +109,7 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 </div>
 </body>
 
-<footer>
+<footer style="position: absolute">
   &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
 </footer>
 

@@ -1,52 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
-    <!--
-BrowsingPage of MeetUp Douglas
-Author: Jonnalyn Sule
-Date:   November 11, 2022
-
-Desktop Styles: 769px and greater
-
-Filename: browsingPage.html
-Disclaimer: No copyright intended. Downloaded pictures and articles in several resources.
-            Modified and rephrase article content for the purpose of showcasing Project requirements.
-            No intention to publish this content. For any case, I will need to publish, I will put the proper
-            content for the business.
-
--->
-
     <title>MeetUp Douglas HomePage</title>
     <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link th:href="@{css/formStyle.css}" rel="stylesheet" />
-    <link th:href="@{css/BaseLayout1.css}" rel="stylesheet" />
-    <link th:href="@{css/generalStyle1.css}" rel="stylesheet" />
-    <link th:href="@{css/gridLayout3.css}" rel="stylesheet" />
-    <link th:href="@{css/browsing.css}" rel="stylesheet"/>
-    <script th:src="@{js/jsFunctions.js}"></script>
-  </head>
-
+    <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
+    <link th:href="@{/css/BaseLayout1.css}" rel="stylesheet" />
+    <link th:href="@{/css/generalStyle1.css}" rel="stylesheet" />
+    <link th:href="@{/css/gridLayout3.css}" rel="stylesheet" />
+    <link th:href="@{/css/browsing.css}" rel="stylesheet"/>
+    <script th:src="@{/js/jsFunctions.js}"></script>
+</head>
 <body>
 <header>
   <nav class="navbar">
     <ul>
-      <li><a th:src="LoginPage.html"><img th:src="@{images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
+      <li><a th:href="@{/}"><img th:src="@{/images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
       <!-- <li><a id="hiw" href="Hiw.html" style="margin-right: 500px">How it works</a></li> -->
       <!-- profile pic and drop down arrow -->
-      <li id="profile">
-        <img th:src="@{images/profilepic.png}">
-        <i class="arrow down" onclick="myFunction()"></i>
+        <li id="profile">
+            <img th:src="@{/images/profilepic.png}">
+            <i class="arrow down" onclick="myFunction()"></i>
             <div class="dropdown">
                 <div id="myDropdown" class="dropdown-content" >
                     <a href="#">Profile</a>
-                    <a href="#">Group</a>
+                    <a th:href="@{/group/create}">Group</a>
                     <a href="#">Event</a>
                     <a th:href="@{/logout}">Log out</a>
                 </div>
             </div>
-          </li>
+        </li>
     </ul>
   </nav>
 </header>
@@ -65,39 +50,35 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
     <div class="item2">
       <h2 class="upev">Upcoming Events</h2>
       <div id="eventcontainer">
-        <div  th:each="event:${listEvents}" th:class="'event-'+${event.getId()}">
-            <img th:src="@{images/winterreg.jpg}" th:alt="'Event'+${event.getId()}">
-<!--            <p th:text="${event.getDate()}+' '+${event.getTime_start()}+' '+${event.getTime_start()}"></p>-->
-<!--            <p th:text="${event.getName()}.toUpperCase()"></p>-->
-            <h3>
-                <span th:text="${#dates.format(event.getDate(), 'EEE MMM dd, yyyy')+
-                                ' '+ event.getTime_start()+
-                                ' - '+ event.getTime_end()}"></span>
-            </h3>
-            <h4>
-                <span th:text="${event.getName().toUpperCase()}"></span>
-            </h4>
-        </div>
+          <a th:each="event:${listEvents}" th:href="'/event/'+${event.getName()}">
+            <div th:class="'event-'+${event.getId()}">
+                <img th:src="@{images/winterreg.jpg}" th:alt="'Event'+${event.getId()}">
+                <h3>
+                    <span th:text="${#dates.format(event.getDate(), 'EEE MMM dd, yyyy')+
+                                    ' '+ event.getTime_start()+
+                                    ' - '+ event.getTime_end()}"></span>
+                </h3>
+                <h4>
+                    <span th:text="${event.getName().toUpperCase()}"></span>
+                </h4>
+            </div>
+          </a>
       </div>
     </div>
 
-
     <div class="item3">
       <h2>Trending Groups</h2>
-      <!-- pool all Group Page names here -->
+      <!-- pool all Groups Page names here -->
       <table class="trending-groups">
           <tbody>
           <tr th:each="group:${listGroups}">
-          <td><button th:id="'grp-'+${group.getId()}" th:text="${group.getName()}"></button></td>
+          <td><a th:id="'grp-'+${group.getId()}" th:text="${group.getName()}"
+                      th:href="'/group/'+${group.getName()}"></a></td>
           </tbody>
       </table>
     </div>
-
   </div>
 </div>
-
-
-
 
 <footer>
   &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy

@@ -26,11 +26,11 @@ Filename: Hiw.html
 <header>
     <nav class="navbar">
         <ul>
-            <li><a th:href="@{res/LoginPage.html}"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
-            <li><a id="hiw" href="#" style="margin-right: 500px">How it works</a></li>
+            <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
+            <li><a id="hiw" th:href="@{/howitworks}" style="margin-right: 500px">How it works</a></li>
             <div id="access">
-            <li><a th:href="@{res/LoginPage.html}">Log in</a></li>
-            <li><a th:href="@{res/SignUpPage.html}">Sign Up</a></li>
+            <li><a th:href="@{/login}">Log in</a></li>
+            <li><a th:href="@{/registration}">Sign Up</a></li>
             </div>
         </ul>
 

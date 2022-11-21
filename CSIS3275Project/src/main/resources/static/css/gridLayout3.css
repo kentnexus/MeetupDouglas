@@ -122,9 +122,14 @@ div[class^="event-"]:hover {
     vertical-align: middle;
 }
 
+#eventcontainer a, #eventcontainer a:hover,#eventcontainer a:active {
+    text-decoration: none;
+    color: black;
+}
+
 /* Trending groups */
 
-button[id^="grp-"]:hover {
+a[id^="grp-"]:hover, a[id^="grp-"]:hover:active{
     background-color:#c9e2659e ;
     cursor: pointer;
     margin: auto;
@@ -132,13 +137,19 @@ button[id^="grp-"]:hover {
 
 /*  */
 
+/*.item3 tr {*/
+/*    height: auto;*/
+/*}*/
 
 .item3 td {
     list-style: none;
-    margin: 10px 20px;
-
+    position: relative;
+    padding-bottom: 35px;
+    /*height: auto;*/
 }
-.item3 td button {
+
+.item3 td a {
+    text-decoration: none;
     margin-left: 15px;
     padding: 14px 20px;
     cursor: pointer;
@@ -146,7 +157,7 @@ button[id^="grp-"]:hover {
     box-shadow: 5px 5px 7px #88888886;
     border-radius: 7px;
     border: 10px;
-
+    color: black;
 }
 
 footer{

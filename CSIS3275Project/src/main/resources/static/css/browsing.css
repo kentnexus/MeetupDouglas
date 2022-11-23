@@ -18,16 +18,12 @@ body::after {
 /* navbar */
 
 .navbar {
-    /* display:contents; */
-    /* display:block; */
     display: inline-block;
     width: 100%;
 }
 
 #profile {
-    /* float: right;
-    margin-right: 1.5%; */
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: 70px;
 }
 
@@ -36,7 +32,8 @@ body::after {
     padding: 5px;
     width: 60px;
     height: 60px;
-    background: 50% 50% center;
+    /*background: 50% 50% center;*/
+    background: 50% 50%;
 }
 
 #browsecontainer {

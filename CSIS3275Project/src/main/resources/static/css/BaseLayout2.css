@@ -30,10 +30,20 @@
     width: auto;
     max-height: 70px ;
 }
+/* Manage Group and Event*/
+.mngList, .mngEdit{
+    margin: 50px 100px ;
+    min-width: 65%;
+    max-width: 80%;
+    padding: 10px;
+}
+
+.mngEdit textarea {
+    width: 99.5%;
+}
 
 /* Footer Style */
 footer {
-    /*padding-bottom: 20px;*/
     position: absolute;
     left: 0;
     bottom: 0;

@@ -25,13 +25,13 @@ h2 {
 
 /* Top Menu Navigation */
 .navbar{
-    background-color:#C9E265;
+    background-color:white;
 }
 
-.navbar ul {
-    display: flex;
-    width: 100%;
-}
+/*.navbar ul {*/
+/*    display: flex;*/
+/*    width: 100%;*/
+/*}*/
 
 .navbar ul li {
     background-color:#C9E265;
@@ -42,33 +42,30 @@ h2 {
 nav ul li a {
     list-style: none;
     text-decoration: none;
-    width: auto;
+    width: 100%;
     font-size: 20px;
 }
 
-.nav img {
-    display: inline-flex;
-    color: black;
-    margin: 0;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-left: 20px
-}
+/*.nav img {*/
+/*    display: inline-flex;*/
+/*    color: black;*/
+/*    margin: 0;*/
+/*    position: relative;*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*    margin-left: 20px*/
+/*}*/
 
 #hiw {
-    /* background-color: #C9E265; */
-    display: inline-flex;
     color: black;
-    margin: 0;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-left: 20px
+    padding: 5px 16px;
+    margin-top:10px;
+    margin-left: 40px;
 }
 
 #hiw:hover {
-    color: white;
+    color: #C9E265;
+    padding: 5px 16px;
 }
 
 #access {
@@ -77,17 +74,18 @@ nav ul li a {
 }
 
 #access li {
-    background: #FDFAFA;
+    background: #C9E265;
     display: inline-flex;
     color: black;
-    margin: 0;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     border-radius: 0.3em;
     width: 100px;
     height: 30px;
-    margin-left:10px;
+    padding: 5px 10px;
+    margin:0px 10px ;
+    text-align: center;
 }
 
 #access li a {

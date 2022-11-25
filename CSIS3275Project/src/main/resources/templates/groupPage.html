@@ -1,40 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Group</title>
-    <link rel="icon" type="icon" th:href="@{/images/mdicon.png}">
+
+<!--   
+   Group Page of MeetUp Douglas
+   Author: Jonnalyn Sule
+   Date:   November 06, 2022
+   
+   Desktop Styles: 769px and greater
+
+   Filename: GroupPage.html
+   Disclaimer: No copyright intended. Downloaded pictures and articles in several resources. 
+               Modified and rephrase article content for the purpose of showcasing Project requirements.
+               No intention to publish this content. For any case, I will need to publish, I will put the proper
+               content for the business.
+
+   -->
+
+   <title>MeetUp Douglas GroupPage</title>
+    <!-- <link rel="icon" type="icon" th:href="@{images/mdicon.png}"> -->
+    <link rel="icon" type="icon" href="mdicon.png">
     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
-    <link th:href="@{/css/BaseLayout1.css}" rel="stylesheet" />
-    <link th:href="@{/css/generalStyle1.css}" rel="stylesheet" />
-    <link th:href="@{/css/browsing.css}" rel="stylesheet"/>
-    <script th:src="@{/js/jsFunctions.js}"></script>
+    <!-- <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
+    <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
+    <link th:href="@{css/formStyle.css}" rel="stylesheet" /> -->
+    <link href="generalStyle2.css" rel="stylesheet" />
+    <link href="BaseLayout2.css" rel="stylesheet" />
+    <link href="gridLayout4.css" rel="stylesheet" />
+    <link href="UserLoggedIn.css" rel="stylesheet" />
+    <script src="jsFunctions.js"></script>
 </head>
+
 <body>
-<div class="container">
     <header>
         <nav class="navbar">
             <ul>
-                <li><a th:href="@{/}"><img th:src="@{/images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
-                <!-- <li><a id="hiw" href="Hiw.html" style="margin-right: 500px">How it works</a></li> -->
-                <!-- profile pic and drop down arrow -->
-                <li id="profile">
-                    <img th:src="@{/images/profilepic.png}">
-                    <i class="arrow down" onclick="myFunction()"></i>
-                    <div class="dropdown">
-                        <div id="myDropdown" class="dropdown-content" >
-                            <a href="#">Profile</a>
-                            <a href="#">Group</a>
-                            <a href="#">Event</a>
-                            <a th:href="@{/logout}">Log out</a>
-                        </div>
-                    </div>
-                </li>
+                <!-- <li><a th:href="@{res/LoginPage.html}"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
+                <li><a id="hiw" th:href="@{res/hiw.html}" style="margin-right: 500px">How it works</a></li>
+                  -->
+                <li><a href="LoginPage.html"><img src="mdLogo2.png" alt="MeetUp Douglas"></a><li>
+                <li><a id="hiw" href="hiw.html" style="margin-right: 500px">How it works</a></li>
+                    <li id="profile">
+                        <!-- <img th:src="@{images/profilepic.png}"> -->
+                        <img src="profilepic.png">
+                        <i class="arrow down" onclick="myFunction()"></i>
+                            <div class="dropdown">
+                                <div id="myDropdown" class="dropdown-content" >
+                                    <a href="#">Profile</a>
+                                    <a href="#">Group</a>
+                                    <a href="#">Event</a>
+                                    <a th:href="@{/logout}">Log out</a>
+                                </div>
+                            </div>
+                          </li>
             </ul>
         </nav>
     </header>
-<a th:text="${group}"></a>
-</div>
+
+
+   <div class="grpcontainer">
+    <div class="grptitle">
+        <h2>Let’s Be Friends DCMate</h2>
+    <table>
+        <tr>
+            <td><img src="icon1.png"></td>
+            <td><strong>FetchCountofMembers</strong></td>
+            <td>Members</td>
+        </tr>
+        <tr>
+            <td><img src="icon2.png"></td>
+            <td>Hosted by</td>
+            <td><strong>FetchnameofGrpAdmin</strong></td>
+        </tr>
+    </table> 
+    <input id="joinBtn" type="submit" value="Join Group" />
+    </div>
+
+    <div class="grpdetails">
+        <div class="toglBtn">
+            <input type="radio" name="toglBtn" checked = "checked" />
+            <label>About</label>
+            <div class="tab">
+                <p>
+                    Looking for people with common interests?
+                    No judgment, just chill and have good conversations. 
+                    No discrimination, No dress code, just be yourself! 
+                    The events are happening not limited to within Metro Vancouver area. Everything from study time, happy hours to networking events to singles mingles to cultural events to fun trivia nights and more!
+                </p>
+            </div>
+
+            <input type="radio" name="toglBtn"/>
+            <label>Members</label>
+            <div class="tab">
+                <p>Fetch from Database</p>
+            </div> 
+
+            <input type="radio" name="toglBtn"/>
+            <label>Comments</label>
+            <div class="tab">
+                <p>Fetch from Database</p>
+            </div> 
+
+            <input type="radio" name="toglBtn"/>
+            <label>Upcoming Events</label>
+            <div class="tab">
+                <p>Fetch from Database</p>
+            </div> 
+
+            <input type="radio" name="toglBtn"/>
+            <label>Past Events</label>
+            <div class="tab">
+                <p>Fetch from Database</p>
+            </div> 
+
+        </div>    
+    </div>
+
+
+ 
+    <div class="grpprofpic"> 
+        <img src="timunsplash.jpg" alt="Group Profile Pic">
+        
+    </div>
+    
+    <div class="memberdet">
+    <h2>Group</h2>
+    <table>
+        <tr>
+            <td><img src="profilepic.png" alt="Admin Pic"></td>
+            <td><strong>FetchnameofGrpAdmin</strong></td>
+        </tr>
+    </table>
+
+    <h2>Members (fetchCountOfMembers)</h2>
+    <table>
+        <tr>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+        </tr>
+        <tr>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+            <td><img src="profilepic.png" alt="Member Pic"></td>
+        </tr>
+    </table>
+    
+    <p>Categories: Newbie, Freshmen, Friends</p> 
+    </div>
+    
+    </div>
+
 </body>
+
+<footer>
+    &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+
 </html>

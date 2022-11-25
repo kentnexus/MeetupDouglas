@@ -14,7 +14,8 @@ public class RegisterRestController {
 
     @PostMapping
     public String register(@RequestBody RegistrationRequest request){
-        return registrationService.register(request);
+        registrationService.register(request);
+        return "registration processed";
     }
 
     @GetMapping(path="confirm")

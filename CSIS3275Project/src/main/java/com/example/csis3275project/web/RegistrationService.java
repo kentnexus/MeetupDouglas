@@ -7,6 +7,7 @@ import com.example.csis3275project.entities.AccountService;
 import com.example.csis3275project.web.token.ConfirmationToken;
 import com.example.csis3275project.web.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,9 +22,9 @@ public class RegistrationService {
     private final ConfirmationTokenService confirmationTokenService;
     private final EmailSender emailSender;
 
-    public String register(RegistrationRequest request) {
+    public String[] register(RegistrationRequest request) {
         boolean isValidEmail = emailValidator.test(request.getEmail());
-        String message;
+        String[] info = new String[3];
         if(!isValidEmail){
             throw new IllegalStateException("Email not valid");
 
@@ -39,9 +40,17 @@ public class RegistrationService {
 
         //String link = "http://localhost:8080/api/v1/registration/confirm?token="+token;
         String link = "http://localhost:8080/registration/confirm?token="+token;
+        info[0] = request.getEmail();
+        info[1] = link;
+        info[2] = request.getFirstName();
+
         emailSender.send(request.getEmail(), buildEmail(request.getFirstName(), link));
 
-        return "Confirmation Email have sent.";
+        return info;
+    }
+
+    public void resendEmail(String email, String link, String fname){
+        emailSender.send(email, buildEmail(fname, link));
     }
 
     @Transactional

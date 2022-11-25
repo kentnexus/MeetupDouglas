@@ -51,6 +51,7 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
         <div id="MsgContainer" name="errorMsgContainer">
             <p th:text="${errorMsg}" id="errorMsg" name="errorMsg" style="color: red; white-space: pre;" ></p>
             <p th:text="${confirmMsg}" id="confirmMsg" name="confirmMsg" style="color: dodgerblue; white-space: pre;" ></p>
+            <a th:href="@{/resendEmail}" th:text="${resendMsg}"></a>
         </div>
 
 

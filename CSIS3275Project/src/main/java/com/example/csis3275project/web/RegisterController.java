@@ -6,10 +6,7 @@ import com.example.csis3275project.repositories.AccountRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @AllArgsConstructor
@@ -20,6 +17,8 @@ public class RegisterController {
     private final PasswordValidator passwordValidator;
     private final AccountService accountService;
     private final RegistrationService registrationService;
+    private String[] info = new String[3];
+
 
     @RequestMapping(value = "/process_registration", method = RequestMethod.POST)
     public String processRegister(@ModelAttribute Account account, Model model){
@@ -69,10 +68,11 @@ public class RegisterController {
             return "signUpPage";
         } else {
             RegistrationRequest accountReq = new RegistrationRequest(fname, lname, email, pwd);
-            registrationService.register(accountReq);
+            info = registrationService.register(accountReq);
         }
 
         model.addAttribute("confirmMsg", "Confirmation Email have sent. Please verify your email address.");
+        model.addAttribute("resendMsg", "Resend the email.");
         return "signUpPage";
     }
 
@@ -85,5 +85,18 @@ public class RegisterController {
 
         model.addAttribute("accountMsg", "Your account activation is successful.");
         return "confirmPage";
+    }
+
+    @GetMapping("/resendEmail")
+    public String resendEmail(Model model){
+        String email = info[0];
+        String link = info[1];
+        String fname = info[2];
+
+        registrationService.resendEmail(email, link, fname);
+
+        model.addAttribute("confirmMsg","Confirmation Email have sent again. Please verify your email address.");
+        model.addAttribute("resendMsg", "Resend the email.");
+        return "signUpPage";
     }
 }

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to MeetUpDouglas</title>
+</head>
+<body>
+    <h1>Welcome to MeetUpDouglas</h1>
+    <div id="msgContainer">
+        <p th:text="${accountMsg}" style="color: cadetblue"></p>
+        <p th:text="${errMsg}" style="color: red"></p>
+    </div>
+    <a  th:href="@{/login}">click here to go back to main page.</a>
+</body>
+</html>

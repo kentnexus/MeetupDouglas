@@ -44,26 +44,33 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
     </nav>
 </header>
 <div class="signupform">
-    <form id="signupform" th:action="@{/api/v1/registration/process_register}" method="post">
+    <form id="signupform" th:action="@{/process_registration}" method="post">
         <legend>
             <h2>Sign Up</h2>
         </legend>
+        <div id="MsgContainer" name="errorMsgContainer">
+            <p th:text="${errorMsg}" id="errorMsg" name="errorMsg" style="color: red; white-space: pre;" ></p>
+            <p th:text="${confirmMsg}" id="confirmMsg" name="confirmMsg" style="color: dodgerblue; white-space: pre;" ></p>
+        </div>
+
+
+
         <fieldset id="custInfo">
             <div class="formRow">
                 <label for="firstName">First Name</label>
-                <input name="firstName" id="firstName" type="text" required/>
+                <input th:value="${firstName}" name="firstName" id="firstName" type="text" required/>
             </div>
             <div class="formRow">
                 <label for="lastName">Last Name</label>
-                <input name="lastName" id="lastName" type="text" required/>
+                <input th:value="${lastName}" name="lastName" id="lastName" type="text" required/>
             </div>
             <div class="formRow">
                 <label for="email">Email Address (Please only use Douglas college email.)</label>
-                <input name="email" id="email" type="email" required/>
+                <input th:value="${email}" name="email" id="email" type="email" required/>
             </div>
             <div class="formRow">
                 <label for="password">Password</label>
-                <input name="password" id="password" type="password" required />
+                <input th:value="${password}" name="password" id="password" type="password" required />
             </div>
 
             <!--

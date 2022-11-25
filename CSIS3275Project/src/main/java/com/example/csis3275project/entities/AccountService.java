@@ -31,9 +31,6 @@ public class AccountService implements UserDetailsService {
         boolean accountExists = accountRepository.findByEmail(account.getEmail()).isPresent();
 
         if(accountExists){
-            // TODO: check of attributes are the same and
-            //TODO: if email not comfirmed send confirmation email
-
             throw new IllegalStateException("email already taken.");
         }
 
@@ -46,7 +43,7 @@ public class AccountService implements UserDetailsService {
         ConfirmationToken confirmationToken = new ConfirmationToken(
                 token,
                 LocalDateTime.now(),
-                LocalDateTime.now().plusMinutes(15),
+                LocalDateTime.now().plusMinutes(5),
                 account
         );
 
@@ -59,5 +56,9 @@ public class AccountService implements UserDetailsService {
 
     public int enableAccount(String email) {
         return accountRepository.enableAppUser(email);
+    }
+
+    public boolean isAccountExisted(String email){
+        return accountRepository.findByEmail(email).isPresent();
     }
 }

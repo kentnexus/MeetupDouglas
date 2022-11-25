@@ -27,7 +27,7 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
   <!--  <link href="BaseLayout2.css" rel="stylesheet" />-->
   <!--  <link href="formStyle.css" rel="stylesheet" />-->
   <link th:href="@{/css/browsing.css}" rel="stylesheet" />
-  <script th:src="@{/css/jsFunctions.js}"></script>
+  <script th:src="@{/js/jsFunctions.js}"></script>
 
 </head>
 
@@ -41,70 +41,64 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
       <!--      <li><a href="LoginPage.html"><img src="mdLogo2.png" alt="MeetUp Douglas"></a><li>-->
       <!--      <li><a id="hiw" href="hiw.html}" style="margin-right: 500px">How it works</a></li>-->
       <li id="profile">
-         <img th:src="@{images/profilepic.png}">
-<!--        <img src="profilepic.png">-->
+        <!-- <img th:src="@{images/profilepic.png}"> -->
+        <img th:src="@{/images/profilepic.png}">
         <i class="arrow down" onclick="myFunction()"></i>
         <div class="dropdown">
           <div id="myDropdown" class="dropdown-content" >
             <a href="#">Profile</a>
-            <a href="#">Group</a>
-            <a href="#">Event</a>
+            <a th:href="@{/group/manage}">Group</a>
+            <a th:href="@{/event/manage}">Event</a>
             <a th:href="@{/logout}">Log out</a>
           </div>
         </div>
       </li>
-  </ul>
+    </ul>
   </nav>
 </header>
 
 <div class="eventpage">
-  <form id="eventpageform" action="/action_page.php" >
+  <form id="eventpageform" th:action="@{/event/save}" th:object="${event}" method="post">
     <h2>Let's start creating your event</h2>
     <fieldset id="eventInfo">
       <div class="formRow">
         <label>Name your Event</label>
-        <input name="eventname" id="eventname" type="text" required/>
+        <input name="name" id="name" type="text" required maxlength="250"/>
       </div>
       <div class="formRow">
         <label>Describe your Event</label>
-        <textarea name="about" id="about" type="textarea"  rows="8" cols="50" required>
-                </textarea>
+        <textarea name="description" id="description" type="textarea" rows="8" cols="50" required maxlength="250"></textarea>
       </div>
 
       <div class="formRow">
         <label>Hosted by Group</label>
-        <select name="tagGroup" id="tagGroup">
-          <option value="(Please select an option)">(Please select an option)</option>
+        <select name="group" id="tagGroup">
+          <option value="(Please select an option)" disabled selected>(Please select an option)</option>
           <!-- retrieve your group names here -->
-          <option value="Grp1">Let's be friends DCMate</option>
-          <option value="Grp2">Online English Lessons</option>
-          <option value="Grp3">Crazy Van Asian</option>
-          <option value="Grp4">Friendly Foodies</option>
-          <option value="Grp5">Data Science and Big Data Meetup</option>
-          <option value="Grp6">Make International Friends</option>
-          <option value="Grp7">Crazy Hikers</option>
+          <option th:each="grp:${groups}" th:text="${grp.group.getName()}" th:value="${grp.group.getGroup_id()}"></option>
         </select>
       </div>
 
       <div class="formrow">
         <label>Schedule</label>
-        <input type="date" id="eventsched" name="eventsched" required>
+        <input type="date" id="eventsched" name="schedule" required>
       </div>
 
       <div class="formrow">
         <label>From</label>
-        <input type="time" id="eventstart" name="eventstart" required>
+        <input type="time" id="eventstart" name="time_start" required>
       </div>
 
       <div class="formrow">
         <label>To</label>
-        <input type="time" id="eventend" name="eventend" required>
+        <input type="time" id="eventend" name="time_end" required>
       </div>
 
       <div class="formRow">
         <label>Frequency</label>
-        <select name="eventfreq" id="eventfreq">
-          <option>(Please select an option)</option>
+        <select name="frequency" id="eventfreq">
+          <option disabled selected>(Please select an option)</option>
+          <option>Once</option>
           <option>Daily</option>
           <option>Weekly</option>
           <option>Bi-weekly</option>
@@ -115,7 +109,7 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
       </div>
 
       <div id="buttons">
-        <input  type="submit" value="Create Event" />
+        <input type="submit" value="Create Event" />
       </div>
 
     </fieldset>

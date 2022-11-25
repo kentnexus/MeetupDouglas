@@ -13,7 +13,7 @@
 <!--  <link href="BaseLayout2.css" rel="stylesheet" />-->
 <!--  <link href="formStyle.css" rel="stylesheet" />-->
   <link th:href="@{/css/browsing.css}" rel="stylesheet" />
-  <script th:src="@{/css/jsFunctions.js}"></script>
+  <script th:src="@{/js/jsFunctions.js}"></script>
 
 </head>
 
@@ -22,19 +22,19 @@
     <nav class="navbar">
       <ul>
         <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
-        <li><a id="hiw" th:href="@{res/hiw.html}" style="margin-right: 500px">How it works</a></li>
+        <li><a id="hiw" th:href="@{/howitworks}" style="margin-right: 500px">How it works</a></li>
 
   <!--      <li><a href="LoginPage.html"><img src="mdLogo2.png" alt="MeetUp Douglas"></a><li>-->
   <!--      <li><a id="hiw" href="hiw.html}" style="margin-right: 500px">How it works</a></li>-->
         <li id="profile">
           <!-- <img th:src="@{images/profilepic.png}"> -->
-          <img src="profilepic.png">
+          <img th:src="@{/images/profilepic.png}">
           <i class="arrow down" onclick="myFunction()"></i>
           <div class="dropdown">
             <div id="myDropdown" class="dropdown-content" >
               <a href="#">Profile</a>
-              <a href="#">Group</a>
-              <a href="#">Event</a>
+              <a th:href="@{/group/manage}">Group</a>
+              <a th:href="@{/event/manage}">Event</a>
               <a th:href="@{/logout}">Log out</a>
             </div>
           </div>
@@ -48,15 +48,15 @@
     <fieldset id="groupinfo">
       <div class="formRow">
         <label>Name your Group</label>
-        <input name="name" id="name" type="string" required/>
+        <input name="name" id="name" type="string" required maxlength="250"/>
       </div>
       <div class="formRow">
         <label>Describe your Group</label>
-        <textarea name="description" id="description" type="text"  rows="8" cols="50" required></textarea>
+        <textarea name="description" id="description" type="text"  rows="8" cols="50" maxlength="250" required></textarea>
       </div>
 
       <div id="buttons">
-        <input  type="submit" value="Create Group" />
+        <input  type="submit" value="Create Group"/>
       </div>
 
     </fieldset>

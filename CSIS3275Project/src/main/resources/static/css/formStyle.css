@@ -61,11 +61,11 @@ fieldset {
   opacity: 0.9;
 }
 
-#loginBtn:hover, #buttons:hover {
+#loginBtn:hover, #buttons:hover{
   background-color: #9bac55;
 }
 
-#updateBtn, #editBtn, #delBtn {
+#updateBtn, #editBtn, #delBtn, #cancelBtn, #createBtn, #leaveBtn{
   background-color: #C9E265;
   border-radius: 5px;
   font-size: 1em;
@@ -75,13 +75,15 @@ fieldset {
   cursor: pointer;
   opacity: 0.9;
   margin: 25px 0px;
+  text-decoration: none;
+  color:black;
 }
 
-#delBtn {
+#delBtn, #leaveBtn{
   background-color: #f9a3a3;
 }
 
-#updateBtn:hover, #editBtn:hover, #delBtn:hover{
+#updateBtn:hover, #editBtn:hover, #delBtn:hover, #cancelBtn:hover, #createBtn:hover, #leaveBtn:hover {
   background-color: #9bac55;
 }
 
@@ -91,7 +93,6 @@ td:first-child {
 }
 
 table {
-
   width: 100%;
 }
 
@@ -123,4 +124,55 @@ input#studentid:focus:invalid,
 input#mobilenum:focus:invalid {
   background: rgb(255, 232, 233) url("static/images/invalid.png") bottom
   right/contain no-repeat;
+}
+
+.tableManager a{
+  text-decoration: none;
+  color:black;
+}
+
+.tableManager a:hover{
+  color: #C9E265;
+}
+
+.tableManager tr{
+  line-height: 40px;
+}
+
+#eventEditForm td:first-child{
+  width: 10vw;
+}
+
+#eventEditForm td:nth-child(2){
+  width: 30vw;
+}
+
+.mngEdit textarea {
+  height: 150px;
+}
+
+#eventEditForm{
+  table-layout: fixed;
+  width: 100%;
+}
+
+#eventEditForm td{
+ text-align: start;
+}
+
+.grpdetails a{
+  text-decoration: none;
+}
+
+.grpdetails a:active{
+  color: black;
+}
+
+.grpdetails a:hover{
+  color: #C9E265;
+}
+
+#editBtn:disabled, #leaveBtn:disabled, #delBtn:disabled{
+  background-color: #9a9b94;
+  color: rgba(54, 54, 59, 0.67)
 }

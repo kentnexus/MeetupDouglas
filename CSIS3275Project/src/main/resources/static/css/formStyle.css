@@ -11,7 +11,6 @@
 */
 
 /* Form Layout Styles */
-/* Form Layout Styles */
 form#signupform, form#grppageform , form#eventpageform{
   padding: 30px 20px;
   width: 40%;
@@ -42,9 +41,15 @@ fieldset {
   flex-flow: column wrap;
   margin: 10px 0px;
 }
+.mngList, .mngEdit{
+  border: 1px solid rgb(187, 185, 185);
+  padding: 50px;
+  box-shadow: 10px 10px #acaea3;
+}
+
 
 /* Form Button Styles */
-#loginBtn,buttons {
+#loginBtn, #buttons {
   background-color: #C9E265;
   border-radius: 5px;
   font-size: 1.5em;
@@ -52,13 +57,44 @@ fieldset {
   padding: 16px 20px;
   border: none;
   cursor: pointer;
-  width: 92%;
+  width: 91%;
   opacity: 0.9;
 }
 
-#loginBtn:hover, buttons:hover {
+#loginBtn:hover, #buttons:hover {
   background-color: #9bac55;
 }
+
+#updateBtn, #editBtn, #delBtn {
+  background-color: #C9E265;
+  border-radius: 5px;
+  font-size: 1em;
+  outline: none;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  margin: 25px 0px;
+}
+
+#delBtn {
+  background-color: #f9a3a3;
+}
+
+#updateBtn:hover, #editBtn:hover, #delBtn:hover{
+  background-color: #9bac55;
+}
+
+td:first-child {
+  font-weight: bold;
+  padding-right: 25px;
+}
+
+table {
+
+  width: 100%;
+}
+
 
 input[type='submit']{
   font-size: 1em;

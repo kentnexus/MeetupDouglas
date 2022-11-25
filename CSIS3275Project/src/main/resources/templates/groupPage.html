@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Group</title>
+    <link rel="icon" type="icon" th:href="@{/images/mdicon.png}">
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
+    <link th:href="@{/css/BaseLayout1.css}" rel="stylesheet" />
+    <link th:href="@{/css/generalStyle1.css}" rel="stylesheet" />
+    <link th:href="@{/css/browsing.css}" rel="stylesheet"/>
+    <script th:src="@{/js/jsFunctions.js}"></script>
+</head>
+<body>
+<div class="container">
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a th:href="@{/}"><img th:src="@{/images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
+                <!-- <li><a id="hiw" href="Hiw.html" style="margin-right: 500px">How it works</a></li> -->
+                <!-- profile pic and drop down arrow -->
+                <li id="profile">
+                    <img th:src="@{/images/profilepic.png}">
+                    <i class="arrow down" onclick="myFunction()"></i>
+                    <div class="dropdown">
+                        <div id="myDropdown" class="dropdown-content" >
+                            <a href="#">Profile</a>
+                            <a href="#">Group</a>
+                            <a href="#">Event</a>
+                            <a th:href="@{/logout}">Log out</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+<a th:text="${group}"></a>
+</div>
+</body>
+</html>

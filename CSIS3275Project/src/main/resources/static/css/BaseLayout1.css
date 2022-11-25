@@ -10,14 +10,12 @@
    
 */
 /* Background Image Layout */
+/* Background Image Layout */
 .bg-img {
-    /* background-image: url("../images/julianunsplash.jpg"); */
     height: 100%;
-    /* background-position: center; */
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
     position: relative;
 }
+
 
 /* Top Menu Navigation */
 .navbar {
@@ -43,11 +41,12 @@
 }
 /* Footer Style */
 footer {
-    /* padding-bottom: 20px; */
+    /*padding-bottom: 20px;*/
     position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
+    text-align: center;
 }
 
   

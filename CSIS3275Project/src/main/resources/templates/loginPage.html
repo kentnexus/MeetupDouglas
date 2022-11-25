@@ -21,18 +21,18 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
     <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link th:href="@{css/generalStyle1.css}" rel="stylesheet" />
-    <link th:href="@{css/BaseLayout1.css}" rel="stylesheet" />
-    <link th:href="@{css/formStyle.css}" rel="stylesheet" />
-    <link th:href="@{css/loginlayout.css}" rel="stylesheet" />
+    <link th:href="@{/css/generalStyle1.css}" rel="stylesheet" />
+    <link th:href="@{/css/BaseLayout1.css}" rel="stylesheet" />
+    <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
+    <link th:href="@{/css/loginlayout.css}" rel="stylesheet" />
 </head>
 
 <body>
     <header>
         <nav class="navbar">
             <ul>
-                <li><a th:href="@{/login}"><img th:src="@{images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
-                <li><a id="hiw" th:href="@{/howItWork}" style="margin-right: 500px">How it works</a></li>
+                <li><a th:href="@{/}"><img th:src="@{/images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
+                <li><a id="hiw" th:href="@{/howitworks}" style="margin-right: 500px">How it works</a></li>
                 <div id="access">
                 <li><a  th:href="@{/login}">Log in</a></li>
                 <li><a  th:href="@{/registration}">Sign Up</a></li>
@@ -59,10 +59,12 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
             </div>
 
             <div class="formRow">
-                <input name="username" id="username" type="username" required placeholder="Email Address"/>
+                <input name="username" id="username" type="username" required placeholder="Email Address"
+                        value="pastorilt@student.douglascollege.ca"/>
             </div>
             <div class="formRow">
-                <input name="password" id="password" type="password" required placeholder="Password"/>
+                <input name="password" id="password" type="password" required placeholder="Password"
+                        value="password"/>
             </div>
         </fieldset>
         <div id="buttons">

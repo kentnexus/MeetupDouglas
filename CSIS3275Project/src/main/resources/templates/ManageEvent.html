@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+   <title>Manage Event Page</title>
+   <link rel="icon" type="icon" href="mdicon.png">
+    <!-- <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org"> -->
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
+    <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
+    <link th:href="@{css/formStyle.css}" rel="stylesheet" />
+    <link th:href="@{css/UserLoggedIn.css}" rel="stylesheet"/>
+    <script th:src="@{css/jsFunctions.js}"></script>
+<!--    <link href="generalStyle2.css" rel="stylesheet" />-->
+<!--    <link href="BaseLayout2.css" rel="stylesheet" />-->
+<!--    <link href="formStyle.css" rel="stylesheet" />-->
+<!--    <link href="UserLoggedIn.css" rel="stylesheet"/>-->
+<!--    <script src="jsFunctions.js"></script>-->
+
+
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <ul>
+<!--            <li><a href="#"><img src="mdLogo2.png" alt="MeetUp Douglas"></a><li>-->
+            <li><a th:href="@{/login}"><img th:src="@{/images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
+            <li id="profile">
+                 <img th:src="@{/images/profilepic.png}">
+<!--                <img src="profilepic.png">-->
+                <i class="arrow down" onclick="myFunction()"></i>
+                <div class="dropdown">
+                    <div id="myDropdown" class="dropdown-content" >
+                        <a href="#">Profile</a>
+                        <!-- <a th:href="@{/group/create}">Group</a> -->
+                        <a href="@{/group/create}">Group</a>
+                        <a href="#">Event</a>
+                        <!-- <a th:href="@{/logout}">Log out</a> -->
+                        <a href="@{/logout}">Log out</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    </nav>
+</header>
+
+<!-- display the event listed -->
+<div class="mngList"> 
+    <h2>Manage your Events</h2>
+    <table>
+        <tr>
+            <td>Fetch eventnames from Database</td>
+            <td><input id="editBtn" type="submit" value="Edit" /></td>
+            <td><input id="delBtn" type="submit" value="Delete" /></td>
+        </tr>
+    </table>
+    </div>
+    
+    <!-- fetch the data from the event name that needs to modify -->
+    <div class="mngEdit"> 
+            <h2>Let's start modifying your event</h2>
+            <table>
+                <tr>
+                    <td>Event Name</td>
+                    <td>eventName1</td>
+                    <td colspan="2">
+                        <form>
+                            <div class="formRow">
+                                <input name="eventname" id="eventname" type="text"/>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Event Schedule</td>
+                    <td>Fetch sched from Database</td>
+                    <td colspan="2">
+                        <form>
+                            <div class="formRow">
+                                <input name="eventsch" id="eventsch" type="text"/>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Details</td>
+                    <td>Fetch details from Database</td>
+                    <td colspan="2">
+                        <textarea name="detail" id="detail" type="textarea">
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Group Organizer</td>
+                    <td>Fetch organizer name from Database</td>
+                </tr>
+                <tr>
+                    <td>Participants</td>
+                    <td>Fetch participants's username from Database</td>
+                </tr>
+
+                <tr>
+                    <td>Comments</td>
+                    <td>Fetch participants's username from Database</td>
+                    <td>Fetch comments from Database</td>
+                    <td>Fetch comments date/time stamp from Database</td>
+                </tr>
+
+                <tr>
+                    <td>Categories</td>
+                    <td>Fetch Events name from Database</td>
+                    <td>Fetch Events scheduled date/time from Database</td>
+                </tr>
+            </table>
+    
+            <div>
+                <input id="updateBtn" type="submit" value="Update event" />
+            </div>
+    </div>
+    
+
+</body>
+</html>

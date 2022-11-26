@@ -46,7 +46,7 @@ function eventEdit(e){
     const organizer = e.dataset.organizer;
     const isOrganizer = e.dataset.org;
 
-    if(isOrganizer == "true"){
+    if(isOrganizer === "true"){
         document.getElementById("eventEditForm").reset();
         document.getElementById("editMode").style.display="";
         document.getElementById("eName").innerText=name;
@@ -140,4 +140,10 @@ function isDeleteEvent(e){
         document.getElementById("delBtn").disabled = true;
         return false;
     }
+}
+
+function greetings(e){
+    let name = e.dataset.name;
+    let greetings = "Hello, "+name;
+    document.getElementById("greetings").innerHTML=greetings;
 }

@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 @AllArgsConstructor
@@ -45,7 +46,7 @@ public class GroupController {
         for(Group_User gu: allGroups) {
             if (gu.getGroup().getGroup_id() == id)
                 users.add(gu);
-            if (gu.isOwner() == true && gu.getGroup().getGroup_id() == id)
+            if (gu.isOwner() && gu.getGroup().getGroup_id() == id)
                 admin = gu;
         }
 
@@ -55,8 +56,10 @@ public class GroupController {
         boolean isMember = false;
 
         for(Group_User gu: allGroups) {
-            if(gu.getGroup().getGroup_id()==id && gu.getAccount().getUser_id() == account.getUser_id())
+            if (gu.getGroup().getGroup_id() == id && Objects.equals(gu.getAccount().getUser_id(), account.getUser_id())) {
                 isMember = true;
+                break;
+            }
         }
 
 //        events
@@ -66,9 +69,9 @@ public class GroupController {
 
         for(EventGroupUser egu:eventGroupUserList) {
             int res = egu.getEvent().getSchedule().compareTo(LocalDate.now());
-            if (res>=0 && egu.getGroup().getGroup_id()==id)
+            if (res>=0 && egu.getGroup().getGroup_id()==id && egu.isOrganizer())
                 futureEventsList.add(egu);
-            else if(res<0 && egu.getGroup().getGroup_id()==id)
+            else if(res<0 && egu.getGroup().getGroup_id()==id && egu.isOrganizer())
                 pastEventsList.add(egu);
         }
 

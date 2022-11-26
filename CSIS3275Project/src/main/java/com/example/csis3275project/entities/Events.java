@@ -1,9 +1,6 @@
 package com.example.csis3275project.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -11,6 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
+@Data
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor

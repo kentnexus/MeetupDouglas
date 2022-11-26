@@ -12,19 +12,19 @@
 
    <title>MeetUp Douglas EventPage</title>
      <!-- <link rel="icon" type="icon" th:href="@{images/mdicon.png}"> -->
-     <link rel="icon" type="icon" href="mdicon.png">
+     <link rel="icon" type="icon" th:href="@{/images/mdicon.png}">
      <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
      <meta name="viewport" content="width=device-width, initial-scale=1" />
      <!-- <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
      <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
      <link th:href="@{css/formStyle.css}" rel="stylesheet" /> -->
-     <link href="generalStyle2.css" rel="stylesheet" />
-     <link href="BaseLayout2.css" rel="stylesheet" />
-     <link href="formStyle.css" rel="stylesheet" />
-     <link href="UserLoggedIn.css" rel="stylesheet" />
-     <script src="jsFunctions.js"></script>
+     <link th:href="@{/css/generalStyle2.css}" rel="stylesheet" />
+     <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
+     <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
+     <link th:href="@{/css/UserLoggedIn.css}" rel="stylesheet" />
+     <script src="@{/js/jsFunctions.js}"></script>
  </head>
- 
+
  <body>
      <header>
          <nav class="navbar">
@@ -40,9 +40,9 @@
                          <i class="arrow down" onclick="myFunction()"></i>
                              <div class="dropdown">
                                  <div id="myDropdown" class="dropdown-content" >
-                                     <a href="AccountProfile.html">Profile</a>
-                                     <a href="GroupPage.html">Group</a>
-                                     <a href="EventPage.html">Event</a>
+                                     <a th:href="@{/profile}">Profile</a>
+                                     <a th:href="@{/group/manage}">Group</a>
+                                     <a th:href="@{/event/manage}">Event</a>
                                      <a th:href="@{/logout}">Log out</a>
                                  </div>
                              </div>

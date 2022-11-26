@@ -19,6 +19,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 @AllArgsConstructor
@@ -39,22 +40,27 @@ public class EventController {
         List<EventGroupUser> eventUsers = new ArrayList<>();
         EventGroupUser admin = new EventGroupUser();
 
-        for(EventGroupUser egu:elist){
-            if(egu.getEvent().getEvent_id()==id)
+        for(EventGroupUser egu:elist) {
+            if (egu.getEvent().getEvent_id() == id)
                 eventUsers.add(egu);
-            if(egu.isOrganizer() == true && egu.getEvent().getEvent_id()==id)
+            if(egu.isOrganizer() && egu.getEvent().getEvent_id() == id)
                 admin = egu;
         }
+
+        System.out.println(admin.getEvent().getName());
 //        isMember
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         account = (Account) auth.getPrincipal();
         boolean isMember = false;
         for(EventGroupUser egu:elist){
-            if(egu.getEvent().getEvent_id()==id && egu.getAccount().getUser_id()==account.getUser_id())
-                isMember=true;
+            if (egu.getEvent().getEvent_id() == id && Objects.equals(egu.getAccount().getUser_id(), account.getUser_id())) {
+                isMember = true;
+                break;
+            }
         }
 
         model.addAttribute("ev",event);
+        model.addAttribute("participants",eventUsers);
         model.addAttribute("evSize",eventUsers.size());
         model.addAttribute("organizer",admin);
         model.addAttribute("isMember",isMember);
@@ -161,8 +167,10 @@ public class EventController {
         List<EventGroupUser> allEvents = eventGroupUserRepository.findAll();
 
         for(EventGroupUser egu: allEvents){
-            if(egu.getEvent().getEvent_id() == id)
-                eventGroupUser = egu;
+            if(egu.getEvent().getEvent_id() == id) {
+                eventGroupUser.setEvent(egu.getEvent());
+                eventGroupUser.setGroup(egu.getGroup());
+            }
         }
 
         eventGroupUser.setAccount(account);

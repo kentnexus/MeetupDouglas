@@ -82,12 +82,13 @@
           <span th:text="${ev.getDescription()}"></span>
         </p>
       </div>
-
-      <!--      <input type="radio" id="comments" name="toglBtn"/>-->
-      <!--      <label for="comments">Comments</label>-->
-      <!--      <div class="tab">-->
-      <!--        <p>Fetch from Database</p>-->
-      <!--      </div>-->
+      <input type="radio" id="participants" name="toglBtn"/>
+      <label for="participants">Participants</label>
+      <div class="tab">
+        <p th:each="part:${participants}">
+          <span th:text="${part.account.getFirstName()}+' '+${part.account.getLastName()}"></span>
+        </p>
+      </div>
     </div>
 
   </div>

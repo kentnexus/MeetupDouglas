@@ -88,7 +88,13 @@ function isOwnerDelete(e){
     let isowner = e.dataset.owner;
 
     if(isowner==="true"){
-        confirm('Are you sure you want to delete the group?');
+        let c = confirm('Are you sure you want to delete the group?');
+        if(c == true){
+            return true;
+        }
+        else {
+            return false;
+        }
     } else {
         alert("You are not the group owner.")
         document.getElementById("delBtn").disabled = true;

@@ -4,27 +4,24 @@ import com.example.csis3275project.entities.Account;
 import com.example.csis3275project.entities.EventGroupUser;
 import com.example.csis3275project.entities.Group_User;
 import com.example.csis3275project.entities.Groups;
-import com.example.csis3275project.repositories.AccountRepository;
 import com.example.csis3275project.repositories.EventGroupUserRepository;
 import com.example.csis3275project.repositories.GroupUserRepository;
 import com.example.csis3275project.repositories.GroupsRepository;
+import jdk.jfr.Event;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
@@ -45,18 +42,25 @@ public class GroupController {
         List<Group_User> users = new ArrayList<>();
         Group_User admin = new Group_User();
 
+
+
         for(Group_User gu: allGroups) {
             if (gu.getGroup().getGroup_id() == id)
                 users.add(gu);
-            if (gu.isOwner()==true)
+            if (gu.isOwner() == true)
                 admin = gu;
         }
-//        isAdmin
+
+//        user info
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         account = (Account) auth.getPrincipal();
-        boolean isUserAdmin = false;
-        if(admin.getAccount().getUser_id() == account.getUser_id())
-            isUserAdmin = true;
+        boolean isMember = false;
+
+        for(Group_User gu: allGroups) {
+            if(gu.getGroup().getGroup_id()==id && gu.getAccount().getUser_id() == account.getUser_id())
+                isMember = true;
+        }
+
 //        events
         List<EventGroupUser> eventGroupUserList = eventGroupUserRepository.findAll();
         List<EventGroupUser> pastEventsList = new ArrayList<>();
@@ -73,7 +77,7 @@ public class GroupController {
         model.addAttribute("grp",group);
         model.addAttribute("groupSize",users.size());
         model.addAttribute("admin",admin);
-        model.addAttribute("isUserAdmin",isUserAdmin);
+        model.addAttribute("isMember",isMember);
         model.addAttribute("members",users);
         model.addAttribute("pastEvents",pastEventsList);
         model.addAttribute("futureEvents",futureEventsList);

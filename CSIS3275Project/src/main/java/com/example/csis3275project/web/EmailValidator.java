@@ -11,6 +11,7 @@ public class EmailValidator implements Predicate<String> {
     @Override
     public boolean test(String s) {
         String regexPattern = "^(.+)@student.douglascollege.ca";
+//        String regexPattern = "^(.+).com";
         return Pattern.compile(regexPattern)
                 .matcher(s)
                 .matches();

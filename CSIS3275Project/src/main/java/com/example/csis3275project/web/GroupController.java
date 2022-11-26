@@ -42,12 +42,10 @@ public class GroupController {
         List<Group_User> users = new ArrayList<>();
         Group_User admin = new Group_User();
 
-
-
         for(Group_User gu: allGroups) {
             if (gu.getGroup().getGroup_id() == id)
                 users.add(gu);
-            if (gu.isOwner() == true)
+            if (gu.isOwner() == true && gu.getGroup().getGroup_id() == id)
                 admin = gu;
         }
 
@@ -162,7 +160,9 @@ public class GroupController {
         group_user.setGroup(group);
         groupUserRepository.save(group_user);
 
-        return "redirect:/group/manage";
+        String url = "redirect:/group/"+group.getName()+"/group?id="+id;
+
+        return url;
     }
 
     @GetMapping("/group/leave")

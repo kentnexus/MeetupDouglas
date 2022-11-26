@@ -42,14 +42,22 @@ public class EventController {
         for(EventGroupUser egu:elist){
             if(egu.getEvent().getEvent_id()==id)
                 eventUsers.add(egu);
-            if(egu.isOrganizer())
+            if(egu.isOrganizer() == true && egu.getEvent().getEvent_id()==id)
                 admin = egu;
         }
-
+//        isMember
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        account = (Account) auth.getPrincipal();
+        boolean isMember = false;
+        for(EventGroupUser egu:elist){
+            if(egu.getEvent().getEvent_id()==id && egu.getAccount().getUser_id()==account.getUser_id())
+                isMember=true;
+        }
 
         model.addAttribute("ev",event);
         model.addAttribute("evSize",eventUsers.size());
         model.addAttribute("organizer",admin);
+        model.addAttribute("isMember",isMember);
 
         return "EventPage";
     }
@@ -65,7 +73,7 @@ public class EventController {
         List<Group_User> newGrpUserList = new ArrayList<>();
 
         for(Group_User grpUser: groupsUserList){
-            if(grpUser.getAccount().getUser_id()== account.getUser_id())
+            if(grpUser.getAccount().getUser_id()== account.getUser_id() && grpUser.isOwner()==true)
                 newGrpUserList.add(grpUser);
         }
 
@@ -78,31 +86,31 @@ public class EventController {
     public String saveEvent(Account account, Groups group, Events event,
                             EventGroupUser eventGroupUser, HttpServletRequest request){
 //        new events
-            eventsRepository.save(event);
-            eventGroupUser.setEvent(event);
+        eventsRepository.save(event);
+        eventGroupUser.setEvent(event);
 
 //        account to eventAssociateTable
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            account = (Account) auth.getPrincipal();
-            eventGroupUser.setAccount(account);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        account = (Account) auth.getPrincipal();
+        eventGroupUser.setAccount(account);
 
 //        group to eventAssociateTable
-            long grpId = Long.parseLong(request.getParameter("group"));
-            List<Groups> groupsList = groupsRepository.findAll();
-            for (Groups g : groupsList) {
-                if (g.getGroup_id() == grpId)
-                    group = g;
-            }
-            eventGroupUser.setGroup(group);
+        long grpId = Long.parseLong(request.getParameter("group"));
+        List<Groups> groupsList = groupsRepository.findAll();
+        for (Groups g : groupsList) {
+            if (g.getGroup_id() == grpId)
+                group = g;
+        }
+        eventGroupUser.setGroup(group);
 
-            eventGroupUser.setOrganizer(true);
-            eventGroupUserRepository.save(eventGroupUser);
+        eventGroupUser.setOrganizer(true);
+        eventGroupUserRepository.save(eventGroupUser);
 
         return "redirect:/event/manage";
     }
 
-        @PostMapping("/event/saveEdit")
-        public String saveEvent2(Events event, EventGroupUser eventGroupUser, HttpServletRequest request){
+    @PostMapping("/event/saveEdit")
+    public String saveEvent2(Events event, EventGroupUser eventGroupUser, HttpServletRequest request){
 
             long idd = 0;
 //            try{
@@ -141,6 +149,31 @@ public class EventController {
             return "redirect:/event/manage";
         }
 
+
+    @PostMapping("/event/join")
+    public String joinEvent(long id, Account account, EventGroupUser eventGroupUser){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        account = (Account) auth.getPrincipal();
+//        event details
+        Events event = eventsRepository.findById(id).orElseThrow();
+
+//        getting the group
+        List<EventGroupUser> allEvents = eventGroupUserRepository.findAll();
+
+        for(EventGroupUser egu: allEvents){
+            if(egu.getEvent().getEvent_id() == id)
+                eventGroupUser = egu;
+        }
+
+        eventGroupUser.setAccount(account);
+        eventGroupUser.setOrganizer(false);
+        eventGroupUserRepository.save(eventGroupUser);
+
+        String url = "redirect:/event/"+event.getName()+"/event?id="+id;
+
+        return url;
+    }
+
     @GetMapping("/event/manage")
     public String manageEvent(Model model, Account account){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -154,7 +187,7 @@ public class EventController {
                 newEvents.add(e);
         }
 
-        model.addAttribute("listEvents",newEvents);
+        model.addAttribute("event",newEvents);
         model.addAttribute("evnt", new Events());
 
         return "ManageEvent";

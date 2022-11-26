@@ -23,7 +23,7 @@
                 <i class="arrow down" onclick="myFunction()"></i>
                 <div class="dropdown">
                     <div id="myDropdown" class="dropdown-content" >
-                        <a href="#">Profile</a>
+                        <a th:href="@{/profile}">Profile</a>
                         <a th:href="@{/group/manage}">Group</a>
                         <a th:href="@{/event/manage}">Event</a>
                         <a th:href="@{/logout}">Log out</a>
@@ -39,14 +39,21 @@
     <h2>Manage your Events</h2>
     <table class="tableManager">
         <tr><a id="createBtn" th:href="@{/event/create}">Create Event</a></tr>
-        <tr th:each="evt:${listEvents}">
+        <tr th:each="evt:${event}">
             <td><a th:text="${evt.event.getName()}" th:href="'/event/'+${evt.event.getName()}+'/'+|@{event(id=${evt.event.getEvent_id()})}|"></a></td>
             <td><a id="editBtn" th:data-id="${evt.event.getEvent_id()}" th:data-name="${evt.event.getName()}"
                    th:data-schedule="${evt.event.getSchedule()}" th:data-tstart="${evt.event.getTime_start()}"
                    th:data-tend="${evt.event.getTime_end()}" th:data-description="${evt.event.getDescription()}"
                    th:data-organizer="${evt.group.getName()}" th:data-org="${evt.isOrganizer()}"
                    onclick="eventEdit(this);">Edit</a></td>
-            <td><a id="delBtn" onClick="return confirm('Are you sure you want to delete the group?')" th:href="'/event/'+|@{delete(id=${evt.event.getEvent_id()})}|">Delete</a></td>
+            <td>
+                <a id="leaveBtn" th:data-owner="${evt.isOrganizer()}" onclick="return isLeaveEvent(this);"
+                   th:href="'/event/'+|@{leave(id=${evt.event.getEvent_id()})}|">Leave</a>
+            </td>
+            <td>
+                <a id="delBtn" th:data-owner="${evt.isOrganizer()}" onclick="return isDeleteEvent(this);"
+                   th:href="'/event/'+|@{delete(id=${evt.event.getEvent_id()})}|">Delete</a>
+            </td>
         </tr>
     </table>
 </div>

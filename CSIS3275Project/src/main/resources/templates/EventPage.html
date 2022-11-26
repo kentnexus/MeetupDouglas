@@ -27,6 +27,7 @@
   <link th:href="@{/css/gridLayout4.css}" rel="stylesheet" />
   <link th:href="@{/css/UserLoggedIn.css}" rel="stylesheet" />
   <script th:src="@{/js/jsFunctions.js}"></script>
+  <script th:data-isadmin="${isMember}" th:src="@{/js/script.js}" defer onload="loadF(this)"></script>
 </head>
 
 <body>
@@ -39,7 +40,7 @@
         <i class="arrow down" onclick="myFunction()"></i>
         <div class="dropdown">
           <div id="myDropdown" class="dropdown-content">
-            <a href="#">Profile</a>
+            <a th:href="@{/profile}">Profile</a>
             <a th:href="@{/group/manage}">Group</a>
             <a th:href="@{/event/manage}">Event</a>
             <a th:href="@{/logout}">Log out</a>
@@ -63,10 +64,12 @@
       <tr>
         <td><img th:src="@{/images/icon/icon2.png}"></td>
         <td>Organized by</td>
-        <td><strong><span th:text="${organizer.getAccount().getFirstName()}"></span></strong></td>
+        <td><strong><span th:text="${organizer.account.getFirstName()}+' '+${organizer.account.getLastName()}"></span></strong></td>
       </tr>
     </table>
-    <input id="joinBtn" type="submit" value="Join Event" />
+    <form th:action="'/event/'+|@{join(id=${ev.getEvent_id()})}|" method="post">
+      <input id="joinBtn" type="submit" value="Join"/>
+    </form>
   </div>
 
   <div class="evtdetails">
@@ -104,7 +107,7 @@
     </table>
     <table>
       <tr>
-        <td><h2>Event Schedule</h2></td>
+        <td><h4>Event Schedule</h4></td>
         <td><strong><span th:text="${ev.getSchedule()}"></span></strong></td>
       </tr>
       <tr>

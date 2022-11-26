@@ -25,4 +25,10 @@ public class AccountController {
 //
 //        return "browsingPage";
 //    }
+
+    @GetMapping("/profile")
+    public String profile(){
+
+        return "AccountProfile";
+    }
 }

@@ -3,35 +3,37 @@
 <head>
    
     <title>Manage Event Page</title>
-    <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
+    <link rel="icon" type="icon" th:href="@{/images/mdicon.png}">
     <!-- <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link th:href="@{/css/generalStyle2.css}" rel="stylesheet" />
     <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
     <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
     <link th:href="@{/css/UserLoggedIn.css}" rel="stylesheet"/>
-    <script th:src="@{/js/jsFunctions.js}"></script>
-
+    <script th:src="@{/js/jsFunctions.js}" th:data-name="${user}" defer onload="greetings(this)"></script>
 </head>
+
 <body>
 <header>
     <nav class="navbar">
-        <ul>
-            <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
-            <li id="profile">
-                <img th:src="@{/images/profilepic.png}">
-                <i class="arrow down" onclick="myFunction()"></i>
-                <div class="dropdown">
-                    <div id="myDropdown" class="dropdown-content" >
-                        <a th:href="@{/profile}">Profile</a>
-                        <a th:href="@{/group/manage}">Group</a>
-                        <a th:href="@{/event/manage}">Event</a>
-                        <a th:href="@{/logout}">Log out</a>
+            <ul>
+                <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
+                <li id="greetings"></li>
+                <li id="profile">
+                    <!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
+                    <img th:src="@{/images/profilepic.png}">
+                    <i class="arrow down" onclick="myFunction()"></i>
+                    <div class="dropdown">
+                        <div id="myDropdown" class="dropdown-content" >
+                            <a th:href="@{/profile}">Profile</a>
+                            <a th:href="@{/group/manage}">Group</a>
+                            <a th:href="@{/event/manage}">Event</a>
+                            <a th:href="@{/logout}">Log out</a>
+                        </div>
                     </div>
-                </div>
-            </li>
-        </ul>
-    </nav>
+                </li>
+            </ul>
+        </nav>
 </header>
 
 <!-- display the event listed -->
@@ -70,7 +72,7 @@
                 <td>Event Name</td>
                 <td id="eName"></td>
                 <td colspan="2">
-                    <input name="name" id="eventname" type="text" maxlength="250"/>
+                    <input name="name" id="eventname" type="text" placeholder="Type new event name"/>
                 </td>
             </tr>
             <tr>
@@ -98,7 +100,7 @@
                 <td>Details</td>
                 <td id="eDetails"></td>
                 <td colspan="2">
-                    <textarea name="description" id="detail" type="textarea" maxlength="250"></textarea>
+                    <textarea name="description" id="detail" type="textarea" rows="8" maxlength="250" placeholder="Type new event details"></textarea>
                 </td>
             </tr>
             <tr>
@@ -129,5 +131,9 @@
         </div>
     </form>
 </div>
+<footer>
+    &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
+
 </body>
 </html>

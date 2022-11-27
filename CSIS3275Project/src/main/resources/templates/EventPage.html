@@ -15,7 +15,7 @@
      -->
 
   <title>MeetUp Douglas EventPage</title>
-  <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
+  <link rel="icon" type="icon" th:href="@{/images/mdicon.png}">
   <!--     <link rel="icon" type="icon" href="mdicon.png">-->
   <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,7 +26,7 @@
   <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
   <link th:href="@{/css/gridLayout4.css}" rel="stylesheet" />
   <link th:href="@{/css/UserLoggedIn.css}" rel="stylesheet" />
-  <script th:src="@{/js/jsFunctions.js}"></script>
+  <script th:src="@{/js/jsFunctions.js}" th:data-name="${user}" defer onload="greetings(this)"></script>
   <script th:data-isadmin="${isMember}" th:src="@{/js/script.js}" defer onload="loadF(this)"></script>
 </head>
 
@@ -35,11 +35,13 @@
   <nav class="navbar">
     <ul>
       <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
+      <li id="greetings"></li>
       <li id="profile">
+        <!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
         <img th:src="@{/images/profilepic.png}">
         <i class="arrow down" onclick="myFunction()"></i>
         <div class="dropdown">
-          <div id="myDropdown" class="dropdown-content">
+          <div id="myDropdown" class="dropdown-content" >
             <a th:href="@{/profile}">Profile</a>
             <a th:href="@{/group/manage}">Group</a>
             <a th:href="@{/event/manage}">Event</a>
@@ -96,19 +98,18 @@
 
 
   <div class="evtprofpic">
-    <img th:src="@{/images/julianunsplash.jpg}" alt="Event Profile Pic">
+    <img th:src="@{/images/priscillaunsplash.jpg}" alt="Event Profile Pic">
   </div>
 
   <div class="evtdet">
-    <h2>Group</h2>
+    <h2>Group Organizer</h2>
+    <h3><span th:text="${organizer.getGroup().getName()}"></span></h3>
+
+    <h2>Event Schedule</h2>
     <table>
       <tr>
-        <td><strong><span th:text="${organizer.getGroup().getName()}"></span></strong></td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td><h4>Event Schedule</h4></td>
+        <td id="eimg" rowspan="3"><img th:src="@{/images/icon/icon4.png}"></td>
+        <td><h4>Event Date</h4></td>
         <td><strong><span th:text="${ev.getSchedule()}"></span></strong></td>
       </tr>
       <tr>
@@ -120,10 +121,9 @@
         <td><strong><span th:text="${ev.getTime_end()}"></span></strong></td>
       </tr>
     </table>
-
     <table>
       <tr>
-        <td><img th:src="@{/images/icon/icon4.png}"></td>
+
       </tr>
     </table>
 

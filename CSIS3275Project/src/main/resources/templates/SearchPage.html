@@ -11,16 +11,17 @@
     <link th:href="@{/css/generalStyle1.css}" rel="stylesheet" />
     <link th:href="@{/css/gridLayout3.css}" rel="stylesheet" />
     <link th:href="@{/css/browsing.css}" rel="stylesheet"/>
-    <script th:src="@{/js/jsFunctions.js}" th:data-name="${user}" onload="greetings(this)"></script>
+    <script th:src="@{/js/jsFunctions.js}" th:data-name="${user}" defer onload="greetings(this)"></script>
 </head>
 <body>
 <header>
     <nav class="navbar">
         <ul>
             <li><a th:href="@{/}"><img th:src="@{/images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
-            <li><a id="hiw" th:href="@{/howitworks}" style="margin-right: 500px">How it works</a></li>
+            <li><a id="hiw" th:href="@{/howitworks}" >How it works</a></li>
+            <li id="greetings"></li>
             <li id="profile">
-                <span id="greetings"></span>
+                <!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
                 <img th:src="@{/images/profilepic.png}">
                 <i class="arrow down" onclick="myFunction()"></i>
                 <div class="dropdown">
@@ -48,7 +49,7 @@
             </form>
         </div>
 
-        <div class="item2" style="width: 50%">
+        <div class="item2">
             <h2 class="upev">Events</h2>
             <div id="eventcontainer">
                 <a th:each="event:${listEvents}" th:href="'/event/'+${event.getName()}+'/'+|@{event(id=${event.getEvent_id()})}|">
@@ -67,7 +68,7 @@
             </div>
         </div>
 
-        <div class="item3" style="width: 50%">
+        <div class="item3">
             <h2>Groups</h2>
             <!-- pool all Groups Page names here -->
             <table class="trending-groups">

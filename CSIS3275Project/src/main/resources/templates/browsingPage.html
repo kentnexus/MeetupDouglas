@@ -18,9 +18,10 @@
     <nav class="navbar">
         <ul>
             <li><a th:href="@{/}"><img th:src="@{/images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
-            <li><a id="hiw" th:href="@{/howitworks}" style="margin-right: 500px">How it works</a></li>
+            <li><a id="hiw" th:href="@{/howitworks}" >How it works</a></li>
+            <li id="greetings"></li>
             <li id="profile">
-                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>
+<!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
                 <img th:src="@{/images/profilepic.png}">
                 <i class="arrow down" onclick="myFunction()"></i>
                 <div class="dropdown">
@@ -40,8 +41,8 @@
     <div class="browsecontainer">
         <div class="item1">
             <div class="interests">
-                <form th:action="@{/search}" method="get">
                 <h2>What interests you?</h2>
+                <form th:action="@{/search}" method="get">
                 <input id="sbar" name="keyword" type="text" th:value="${keyword}" placeholder="Search for &quot;photography&quot;">
 <!--                <select name="option" id="option">-->
 <!--                    <option value="groups" selected>Groups</option>-->

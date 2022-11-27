@@ -13,7 +13,7 @@ Filename: Hiw.html
 
    -->
    <title>How It Works Page</title>
-   <link rel="icon" type="icon" href="mdicon.png">
+    <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
@@ -27,11 +27,6 @@ Filename: Hiw.html
     <nav class="navbar">
         <ul>
             <li><a th:href="@{/login}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
-<!--            <li><a id="hiw" th:href="@{/howitworks}" style="margin-right: 500px">How it works</a></li>-->
-<!--            <div id="access">-->
-<!--            <li><a th:href="@{/login}">Log in</a></li>-->
-<!--            <li><a th:href="@{/registration}">Sign Up</a></li>-->
-<!--            </div>-->
         </ul>
 
     </nav>
@@ -71,6 +66,9 @@ Filename: Hiw.html
 
 
 </div>
+<footer>
+    &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
+</footer>
 
 </body>
 </html>

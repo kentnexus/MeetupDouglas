@@ -10,20 +10,21 @@
 /* Group Page*/
 
 .grpcontainer {  display: grid;
-    grid-template-columns: 0.3fr 1.7fr 1.7fr 0.3fr;
-    grid-template-rows: 1.3fr 0.3fr 1.4fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    }
-  
-  .grpdetails { grid-area: 2 / 2 / 4 / 4; background-color: #b3b3b0; padding: 40px }
- 
-  .memberdet { grid-area: 3 / 3 / 4 / 4; margin:0; padding-left: 40px;}
-  
-  .grpprofpic { grid-area: 1 / 3 / 2 / 4; background-color: #f0f7d4; padding: 20px}
-  
-  .grptitle { grid-area: 1 / 2 / 2 / 3; background-color: #f0f7d4; padding: 40px}
-  
+  grid-template-columns: 0.5fr 0.8fr;
+  grid-template-rows: 0.9fr 0.7fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "c b"
+    "a a";
+  margin: 10px 50px 50px 50px;
+}
+
+
+.grpdetails { grid-area: a; background-color: #b3b3b0; padding: 40px }
+
+.grpprofpic { grid-area: b; background-color: #f0f7d4; padding: 20px}
+
+.grptitle { grid-area: c; background-color: #f0f7d4; padding: 40px}
   
   .grpprofpic img{
     max-width: 80%;
@@ -101,24 +102,56 @@
   /* Events Page */
 
   .evtcontainer {  display: grid;
-    grid-template-columns: 0.3fr 1.7fr 1.7fr 0.3fr;
-    grid-template-rows: 1.3fr 0.3fr 1.4fr;
+    display: grid;
+    grid-template-columns: 0.7fr 0.7fr 0.9fr;
+    grid-template-rows: 0.9fr 0.7fr;
     gap: 0px 0px;
-    grid-auto-flow: row;
-    }
+    grid-template-areas:
+    "d c c"
+    "a a b";
+    margin: 10px 50px 50px 50px;
+  }
   
-  .evtdetails { grid-area: 2 / 2 / 4 / 3; background-color: #b3b3b0; padding: 40px }
+  .evtdetails { grid-area: a; background-color: #b3b3b0; padding: 40px }
  
-  .evtdet { grid-area: 3 / 3 / 4 / 4; margin:0; padding-left: 40px;}
+  .evtdet { grid-area: b ; margin:0; padding-left: 40px;}
   
-  .evtprofpic { grid-area: 1 / 3 / 2 / 4; background-color: #f0f7d4; padding: 20px}
+  .evtprofpic { grid-area: c; background-color: #f0f7d4; padding: 20px}
   
-  .evttitle { grid-area: 1 / 2 / 2 / 3; background-color: #f0f7d4; padding: 40px}
+  .evttitle { grid-area: d; background-color: #f0f7d4; padding: 40px}
   
   
   .evtprofpic img{
     max-width: 80%;
+    padding-left: 50px;
   }
+
+  .evtdet h2 {
+  font-size: 1.3em;
+}
+
+    .evtdet h3 {
+        font-size: 1.2em;
+        text-indent: 50px;
+        color: #646564;
+    }
+
+      .evtdet h4 {
+        font-size: 0.9em;
+        text-indent: 30px;
+        color: #646564;
+      }
+
+      .eimg {
+        vertical-align: top;
+      }
+
+    .evtdet tr{
+        height:14px;
+        padding: 0;
+      margin:0;
+    }
+
 
   .grpdetContainer {
     box-shadow: 3px 3px #C9E265;

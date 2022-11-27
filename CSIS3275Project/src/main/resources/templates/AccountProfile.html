@@ -10,7 +10,7 @@
    Desktop Styles: 769px and greater
    -->
 
-   <title>MeetUp Douglas EventPage</title>
+   <title>MeetUp Douglas Account Profile</title>
      <!-- <link rel="icon" type="icon" th:href="@{images/mdicon.png}"> -->
      <link rel="icon" type="icon" th:href="@{/images/mdicon.png}">
      <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
@@ -22,114 +22,124 @@
      <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
      <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
      <link th:href="@{/css/UserLoggedIn.css}" rel="stylesheet" />
-     <script src="@{/js/jsFunctions.js}"></script>
+     <script th:src="@{/js/jsFunctions.js}" th:data-name="${user}" defer onload="greetings(this)"></script>
  </head>
 
  <body>
      <header>
          <nav class="navbar">
-             <ul>
-                 <!-- <li><a th:href="@{res/LoginPage.html}"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
-                 <li><a id="hiw" th:href="@{res/hiw.html}" style="margin-right: 500px">How it works</a></li>
-                   -->
-                 <li><a href="LoginPage.html"><img src="mdLogo2.png" alt="MeetUp Douglas"></a><li>
-                 <li><a id="hiw" href="hiw.html" style="margin-right: 500px">How it works</a></li>
+             <nav class="navbar">
+                 <ul>
+                     <li><a th:href="@{/}"><img th:src="@{images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
+                     <li id="greetings"></li>
                      <li id="profile">
-                         <!-- <img th:src="@{images/profilepic.png}"> -->
-                         <img src="profilepic.png">
+                         <!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
+                         <img th:src="@{/images/profilepic.png}">
                          <i class="arrow down" onclick="myFunction()"></i>
-                             <div class="dropdown">
-                                 <div id="myDropdown" class="dropdown-content" >
-                                     <a th:href="@{/profile}">Profile</a>
-                                     <a th:href="@{/group/manage}">Group</a>
-                                     <a th:href="@{/event/manage}">Event</a>
-                                     <a th:href="@{/logout}">Log out</a>
-                                 </div>
+                         <div class="dropdown">
+                             <div id="myDropdown" class="dropdown-content" >
+                                 <a th:href="@{/profile}">Profile</a>
+                                 <a th:href="@{/group/manage}">Group</a>
+                                 <a th:href="@{/event/manage}">Event</a>
+                                 <a th:href="@{/logout}">Log out</a>
                              </div>
-                           </li>
-             </ul>
+                         </div>
+                     </li>
+                 </ul>
+             </nav>
          </nav>
      </header>
  
      <div class="mngProf"> 
-        <h2>Manage your Profile</h2>
+        <h2>Your Account Profile</h2>
         <table>
             <tr>
-                <td>User ID</td>
-                <td>Fetch Username</td>
-                <td colspan="2">
-                    <form>
-                        <div class="formRow">
-                            <input name="userid" type="text" />
-                        </div>
-                    </form>
-                </td>
+                <td>First name</td>
+                <td>Fetch Firstname</td>
+<!--                <td colspan="2">-->
+<!--                    <form>-->
+<!--                        <div class="formRow">-->
+<!--                            <input name="userid" type="text" />-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </td>-->
+            </tr>
+            <tr>
+                <td>Last name</td>
+                <td>Fetch Lastname</td>
+                <!--                <td colspan="2">-->
+                <!--                    <form>-->
+                <!--                        <div class="formRow">-->
+                <!--                            <input name="userid" type="text" />-->
+                <!--                        </div>-->
+                <!--                    </form>-->
+                <!--                </td>-->
             </tr>
 
             <tr>
                 <td>Email Address</td>
                 <td>Fetch Email</td>
-                <td colspan="2">
-                    <form>
-                        <div class="formRow">
-                            <input name="email" type="email"/>
-                        </div>
-                    </form>
-                </td>
+<!--                <td colspan="2">-->
+<!--                    <form>-->
+<!--                        <div class="formRow">-->
+<!--                            <input name="email" type="email"/>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </td>-->
             </tr>
             <tr>
                 <td>Password</td>
                 <td>Fetch Password</td>
-                <td colspan="2">
-                    <form>
-                        <div class="formRow">
-                            <input name="password" type="password"/>
-                        </div>
-                    </form>
-                </td>
+<!--                <td colspan="2">-->
+<!--                    <form>-->
+<!--                        <div class="formRow">-->
+<!--                            <input name="password" type="password"/>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </td>-->
             </tr>
 
-            <tr>
-                <td>Student ID</td>
-                <td>Fetch Student ID</td>
-                <td colspan="2">
-                    <form>
-                        <div class="formRow">
-                            <input name="studentid" type="text"/>
-                        </div>
-                    </form>
-                </td>
-            </tr>
+<!--            <tr>-->
+<!--                <td>Student ID</td>-->
+<!--                <td>Fetch Student ID</td>-->
+<!--                <td colspan="2">-->
+<!--                    <form>-->
+<!--                        <div class="formRow">-->
+<!--                            <input name="studentid" type="text"/>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </td>-->
+<!--            </tr>-->
             
-            <tr>
-                <td>Mobile Number</td>
-                <td>Fetch Mobile Number</td>
-                <td colspan="2">
-                    <form>
-                        <div class="formRow">
-                            <input name="mobilenum" type="text"/>
-                        </div>
-                    </form>
-                </td>
-            </tr>
+<!--            <tr>-->
+<!--                <td>Mobile Number</td>-->
+<!--                <td>Fetch Mobile Number</td>-->
+<!--                <td colspan="2">-->
+<!--                    <form>-->
+<!--                        <div class="formRow">-->
+<!--                            <input name="mobilenum" type="text"/>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </td>-->
+<!--            </tr>-->
 
-            <tr>
-                <td>Interests</td>
-                <td>Fetch Interests</td>
-                <td colspan="2">
-                    <form>
-                        <div class="formRow">
-                            <textarea name="Interests" type="textarea"> </textarea>
-                        </div>
-                    </form>
-                </td>
-            </tr>
+<!--            <tr>-->
+<!--                <td>Interests</td>-->
+<!--                <td>Fetch Interests</td>-->
+<!--                <td colspan="2">-->
+<!--                    <form>-->
+<!--                        <div class="formRow">-->
+<!--                            <textarea name="Interests" type="textarea"> </textarea>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </td>-->
+<!--            </tr>-->
            
         </table>
 
-    <div>
-       <input id="updateBtn" type="submit" value="Update Changes on Profile" />
-    </div>   
+<!--    <div>-->
+<!--       <input id="updateBtn" type="submit" value="Update Changes on Profile" />-->
+<!--    </div>   -->
      
 </div>
 </body>

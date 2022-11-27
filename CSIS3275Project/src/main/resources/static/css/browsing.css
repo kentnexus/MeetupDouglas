@@ -99,3 +99,13 @@ footer{
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+#greetings {
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: 'Josefin Sans';
+    font-style: italic;
+    margin: 25px 0px;
+    margin-left: 30%;
+    min-width: 100px;
+}

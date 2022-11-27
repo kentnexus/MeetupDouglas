@@ -27,7 +27,6 @@ h2 {
 .navbar ul {
     display: flex;
     width: 100%;
-    
 }
 
 .navbar ul li {
@@ -57,10 +56,10 @@ nav img {
     display: inline-flex;
     color: black;
     margin: 0;
+    min-width: 200px;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-left: 20px
+    top: 30%;
+    margin-left: 20px;
 }
 
 #hiw:hover {
@@ -97,6 +96,8 @@ nav img {
 /*Search Bar*/
 #sbar {
     background-color: white;
+    min-width: 500px;
+    min-height: 60px;
 }
 
 /* Footer Style */

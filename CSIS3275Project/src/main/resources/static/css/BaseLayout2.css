@@ -30,8 +30,8 @@
     width: auto;
     max-height: 70px ;
 }
-/* Manage Group and Event*/
-.mngList, .mngEdit{
+/* Manage Group Event Profile*/
+.mngList, .mngEdit, .mngProf{
     margin: 50px 100px ;
     min-width: 65%;
     max-width: 80%;
@@ -44,7 +44,7 @@
 
 /* Footer Style */
 footer {
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;

@@ -142,12 +142,20 @@ public class GroupController {
     @GetMapping("/group/delete")
     public String deleteGroup(long id){
         List<Group_User> groupUserList = groupUserRepository.findAll();
+
+        List<EventGroupUser> events = eventGroupUserRepository.findAll();
+        for(EventGroupUser event: events){
+            if(event.getGroup().getGroup_id()==id)
+                eventGroupUserRepository.delete(event);
+        }
+
         for(Group_User g: groupUserList){
             if(g.getGroup().getGroup_id()==id){
                 groupUserRepository.delete(g);
             }
         }
         groupsRepository.deleteById(id);
+
 
         return "redirect:/group/manage";
     }

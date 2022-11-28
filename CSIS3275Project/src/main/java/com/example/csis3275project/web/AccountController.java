@@ -4,6 +4,8 @@ import com.example.csis3275project.entities.Account;
 import com.example.csis3275project.repositories.AccountRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +29,12 @@ public class AccountController {
 //    }
 
     @GetMapping("/profile")
-    public String profile(){
+    public String profile(Model model, Account account){
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        account = (Account) auth.getPrincipal();
+
+        model.addAttribute("account",account);
 
         return "AccountProfile";
     }

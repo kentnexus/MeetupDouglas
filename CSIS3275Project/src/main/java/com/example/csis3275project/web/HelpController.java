@@ -10,6 +10,6 @@ public class HelpController {
 
     @GetMapping("/howitworks")
     public String howItWorks(){
-        return "hiw";
+        return "hiwLogged";
     }
 }

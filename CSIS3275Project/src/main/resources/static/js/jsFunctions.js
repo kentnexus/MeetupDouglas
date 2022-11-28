@@ -147,3 +147,7 @@ function greetings(e){
     let greetings = "Hello, "+name;
     document.getElementById("greetings").innerHTML=greetings;
 }
+
+function gr(){
+
+}

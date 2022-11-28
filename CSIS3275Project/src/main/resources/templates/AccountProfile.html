@@ -22,7 +22,9 @@
      <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
      <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
      <link th:href="@{/css/UserLoggedIn.css}" rel="stylesheet" />
-     <script th:src="@{/js/jsFunctions.js}" th:data-name="${user}" defer onload="greetings(this)"></script>
+     <script th:src="@{/js/jsFunctions.js}" defer>
+         let greetingVal = localStorage.getItem("greets");
+         document.getElementById("greetings").innerHTML = greetingVal;</script>
  </head>
 
  <body>
@@ -55,7 +57,7 @@
         <table>
             <tr>
                 <td>First name</td>
-                <td>Fetch Firstname</td>
+                <td><span th:text="${account.getFirstName()}"></span></td>
 <!--                <td colspan="2">-->
 <!--                    <form>-->
 <!--                        <div class="formRow">-->
@@ -66,7 +68,7 @@
             </tr>
             <tr>
                 <td>Last name</td>
-                <td>Fetch Lastname</td>
+                <td><span th:text="${account.getLastName()}"></span></td>
                 <!--                <td colspan="2">-->
                 <!--                    <form>-->
                 <!--                        <div class="formRow">-->
@@ -78,7 +80,7 @@
 
             <tr>
                 <td>Email Address</td>
-                <td>Fetch Email</td>
+                <td><span th:text="${account.getEmail()}"></span></td>
 <!--                <td colspan="2">-->
 <!--                    <form>-->
 <!--                        <div class="formRow">-->
@@ -87,9 +89,9 @@
 <!--                    </form>-->
 <!--                </td>-->
             </tr>
-            <tr>
-                <td>Password</td>
-                <td>Fetch Password</td>
+<!--            <tr>-->
+<!--                <td>Password</td>-->
+<!--                <td>Fetch Password</td>-->
 <!--                <td colspan="2">-->
 <!--                    <form>-->
 <!--                        <div class="formRow">-->
@@ -97,7 +99,7 @@
 <!--                        </div>-->
 <!--                    </form>-->
 <!--                </td>-->
-            </tr>
+<!--            </tr>-->
 
 <!--            <tr>-->
 <!--                <td>Student ID</td>-->

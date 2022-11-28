@@ -20,6 +20,7 @@ Filename: Hiw.html
     <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
     <link th:href="@{css/formStyle.css}" rel="stylesheet" />
     <link th:href="@{css/gridLayout2.css}" rel="stylesheet" />
+    <script th:src="@{/js/jsFunctions.js}"></script>
 
 </head>
 <body>
@@ -28,19 +29,19 @@ Filename: Hiw.html
         <ul>
             <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
             <li id="greetings"></li>
-            <li id="profile">
-                <!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
-                <img th:src="@{/images/profilepic.png}">
-                <i class="arrow down" onclick="myFunction()"></i>
-                <div class="dropdown">
-                    <div id="myDropdown" class="dropdown-content" >
-                        <a th:href="@{/profile}">Profile</a>
-                        <a th:href="@{/group/manage}">Group</a>
-                        <a th:href="@{/event/manage}">Event</a>
-                        <a th:href="@{/logout}">Log out</a>
-                    </div>
-                </div>
-            </li>
+<!--            <li id="profile">-->
+<!--                &lt;!&ndash;                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>&ndash;&gt;-->
+<!--                <img th:src="@{/images/profilepic.png}">-->
+<!--                <i class="arrow down" onclick="myFunction()"></i>-->
+<!--                <div class="dropdown">-->
+<!--                    <div id="myDropdown" class="dropdown-content" >-->
+<!--                        <a th:href="@{/profile}">Profile</a>-->
+<!--                        <a th:href="@{/group/manage}">Group</a>-->
+<!--                        <a th:href="@{/event/manage}">Event</a>-->
+<!--                        <a th:href="@{/logout}">Log out</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </li>-->
         </ul>
     </nav>
 </header>

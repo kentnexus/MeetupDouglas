@@ -12,6 +12,7 @@
     <link th:href="@{/css/gridLayout3.css}" rel="stylesheet" />
     <link th:href="@{/css/browsing.css}" rel="stylesheet"/>
     <script th:src="@{/js/jsFunctions.js}" th:data-name="${user}" defer onload="greetings(this)"></script>
+
 </head>
 <body>
 <header>
@@ -90,6 +91,8 @@
 <footer>
     &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
 </footer>
-
 </body>
+<script>
+    localStorage.setItem("greets", greetings);
+</script>
 </html>

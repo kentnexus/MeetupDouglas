@@ -78,12 +78,13 @@ public class RegisterController {
 
     @RequestMapping(value = "/registration/confirm", method = RequestMethod.GET)
     public String confirmToken(@RequestParam("token") String token, Model model){
-        if(!registrationService.checkToken(token)){
+        Boolean isTokenCorrected = registrationService.checkToken(token);
+        if(!isTokenCorrected){
             model.addAttribute("errMsg", "Your account activation went wrong.");
-            return "confirmPage";
+        } else {
+            model.addAttribute("accountMsg", "Your account activation is successful.");
         }
 
-        model.addAttribute("accountMsg", "Your account activation is successful.");
         return "confirmPage";
     }
 

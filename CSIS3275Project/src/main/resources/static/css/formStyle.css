@@ -40,6 +40,7 @@ fieldset {
   display: flex;
   flex-flow: column wrap;
   margin: 10px 0px;
+  background-color: rgba(255, 255, 255, 0.815);
 }
 .mngList, .mngEdit{
   border: 1px solid rgb(187, 185, 185);
@@ -47,6 +48,26 @@ fieldset {
   box-shadow: 10px 10px #acaea3;
 }
 
+.mngProf {
+  border: 1px solid rgb(187, 185, 185);
+  padding: 50px;
+  box-shadow: 10px 10px #acaea3;
+  max-width: 65%;
+  min-width: 30% ;
+}
+
+#grpname, #about, #eventname, #eventsch, #eventTS, #eventTE, #detail {
+  background-color: rgb(241, 238, 238);
+  font-size: 16px;
+  font-family: 'Gill Sans', 'Gi ll Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 400px;
+  height: auto;
+}
+
+#username, password {
+  background-color: rgb(241, 238, 238);
+  font-family: 'Gill Sans', 'Gi ll Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 /* Form Button Styles */
 #loginBtn, #buttons {
@@ -79,21 +100,28 @@ fieldset {
   color:black;
 }
 
-#delBtn, #leaveBtn{
+#leaveBtn{
+  background-color: #FFD700;
+}
+
+#delBtn{
   background-color: #f9a3a3;
 }
 
 #updateBtn:hover, #editBtn:hover, #delBtn:hover, #cancelBtn:hover, #createBtn:hover, #leaveBtn:hover {
-  background-color: #9bac55;
+  background-color: #C3C4C2;
 }
 
 td:first-child {
   font-weight: bold;
   padding-right: 25px;
+  min-width: 150px;
+  font-size: 1.1em;
 }
 
 table {
   width: 100%;
+  margin: 30px 0px;
 }
 
 

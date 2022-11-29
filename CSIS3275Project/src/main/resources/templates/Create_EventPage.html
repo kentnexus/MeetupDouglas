@@ -17,44 +17,40 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
 -->
 
   <title>Create Event Page</title>
-  <link rel="icon" type="icon" th:href="@{images/mdicon.png}">
+  <link rel="icon" type="icon" th:href="@{/images/mdicon.png}">
   <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link th:href="@{/css/generalStyle1.css}" rel="stylesheet" />
-  <link th:href="@{/css/BaseLayout1.css}" rel="stylesheet" />
+  <!-- <link th:href="@{css/generalStyle2.css}" rel="stylesheet" />
+   <link th:href="@{css/BaseLayout2.css}" rel="stylesheet" />
+   <link th:href="@{css/formStyle.css}" rel="stylesheet" /> -->
+  <link th:href="@{/css/generalStyle2.css}" rel="stylesheet" />
+  <link th:href="@{/css/BaseLayout2.css}" rel="stylesheet" />
   <link th:href="@{/css/formStyle.css}" rel="stylesheet" />
-  <!--  <link href="generalStyle2.css" rel="stylesheet" />-->
-  <!--  <link href="BaseLayout2.css" rel="stylesheet" />-->
-  <!--  <link href="formStyle.css" rel="stylesheet" />-->
-  <link th:href="@{/css/browsing.css}" rel="stylesheet" />
+  <link th:href="@{/css/UserLoggedIn.css}" rel="stylesheet" />
   <script th:src="@{/js/jsFunctions.js}"></script>
-
 </head>
 
 <body>
 <header>
   <nav class="navbar">
-    <ul>
-      <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a><li>
-      <li><a id="hiw" th:href="@{/howitworks}" style="margin-right: 500px">How it works</a></li>
-
-      <!--      <li><a href="LoginPage.html"><img src="mdLogo2.png" alt="MeetUp Douglas"></a><li>-->
-      <!--      <li><a id="hiw" href="hiw.html}" style="margin-right: 500px">How it works</a></li>-->
-      <li id="profile">
-        <!-- <img th:src="@{images/profilepic.png}"> -->
-        <img th:src="@{/images/profilepic.png}">
-        <i class="arrow down" onclick="myFunction()"></i>
-        <div class="dropdown">
-          <div id="myDropdown" class="dropdown-content" >
-            <a href="#">Profile</a>
-            <a th:href="@{/group/manage}">Group</a>
-            <a th:href="@{/event/manage}">Event</a>
-            <a th:href="@{/logout}">Log out</a>
+      <ul>
+        <li><a th:href="@{/}"><img th:src="@{/images/mdLogo2.png}" alt="MeetUp Douglas"></a></li>
+        <li id="greetings"></li>
+        <li id="profile">
+          <!--                <span id="greetings" style="font-size: 16pt; font-weight: bold"></span>-->
+          <img th:src="@{/images/profilepic.png}">
+          <i class="arrow down" onclick="myFunction()"></i>
+          <div class="dropdown">
+            <div id="myDropdown" class="dropdown-content" >
+              <a th:href="@{/profile}">Profile</a>
+              <a th:href="@{/group/manage}">Group</a>
+              <a th:href="@{/event/manage}">Event</a>
+              <a th:href="@{/logout}">Log out</a>
+            </div>
           </div>
-        </div>
-      </li>
-    </ul>
-  </nav>
+        </li>
+      </ul>
+    </nav>
 </header>
 
 <div class="eventpage">
@@ -108,19 +104,17 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
         </select>
       </div>
 
-      <div id="buttons">
-        <input type="submit" value="Create Event" />
+      <div>
+        <input id="buttons" type="submit" value="Create Event" />
       </div>
 
     </fieldset>
   </form>
 </div>
-</body>
-
-<footer style="position: absolute">
+<footer>
   &#169; 2022 MeetUp Douglas &#9830; Website Development by Talk Dev Corp &#9830; Privacy Policy
 </footer>
 
+</body>
 </html>
-
 

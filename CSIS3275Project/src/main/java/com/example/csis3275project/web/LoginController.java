@@ -15,8 +15,4 @@ public class LoginController {
 
     @GetMapping("/registration")
     public String register(){ return "signUpPage";}
-
-    @GetMapping("/howItWorks")
-    public String hiw(){ return "hiw";}
-
 }

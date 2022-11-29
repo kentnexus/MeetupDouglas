@@ -34,7 +34,6 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
                 <li><a th:href="@{/login}"><img th:src="@{/images/mdLogo.png}" alt="MeetUp Douglas"></a></li>
                 <li><a id="hiw" th:href="@{/howItWorks}" style="margin-right: 500px">How it works</a></li>
                 <div id="access">
-                <li><a  th:href="@{/login}">Log in</a></li>
                 <li><a  th:href="@{/registration}">Sign Up</a></li>
                 </div>
             </ul>
@@ -67,8 +66,8 @@ Disclaimer: No copyright intended. Downloaded pictures and articles in several r
                         value="password"/>
             </div>
         </fieldset>
-        <div id="buttons">
-            <input type="submit" value="Log in" />
+        <div>
+            <input id="buttons" type="submit" value="Log in" />
         </div>
     </form>
 </div>

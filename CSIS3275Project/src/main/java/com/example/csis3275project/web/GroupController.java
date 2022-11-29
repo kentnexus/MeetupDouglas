@@ -4,27 +4,25 @@ import com.example.csis3275project.entities.Account;
 import com.example.csis3275project.entities.EventGroupUser;
 import com.example.csis3275project.entities.Group_User;
 import com.example.csis3275project.entities.Groups;
-import com.example.csis3275project.repositories.AccountRepository;
 import com.example.csis3275project.repositories.EventGroupUserRepository;
 import com.example.csis3275project.repositories.GroupUserRepository;
 import com.example.csis3275project.repositories.GroupsRepository;
+import jdk.jfr.Event;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 
 @Controller
 @AllArgsConstructor
@@ -48,15 +46,22 @@ public class GroupController {
         for(Group_User gu: allGroups) {
             if (gu.getGroup().getGroup_id() == id)
                 users.add(gu);
-            if (gu.isOwner()==true)
+            if (gu.isOwner() && gu.getGroup().getGroup_id() == id)
                 admin = gu;
         }
-//        isAdmin
+
+//        user info
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         account = (Account) auth.getPrincipal();
-        boolean isUserAdmin = false;
-        if(admin.getAccount().getUser_id() == account.getUser_id())
-            isUserAdmin = true;
+        boolean isMember = false;
+
+        for(Group_User gu: allGroups) {
+            if (gu.getGroup().getGroup_id() == id && Objects.equals(gu.getAccount().getUser_id(), account.getUser_id())) {
+                isMember = true;
+                break;
+            }
+        }
+
 //        events
         List<EventGroupUser> eventGroupUserList = eventGroupUserRepository.findAll();
         List<EventGroupUser> pastEventsList = new ArrayList<>();
@@ -64,16 +69,16 @@ public class GroupController {
 
         for(EventGroupUser egu:eventGroupUserList) {
             int res = egu.getEvent().getSchedule().compareTo(LocalDate.now());
-            if (res>=0 && egu.getGroup().getGroup_id()==id)
+            if (res>=0 && egu.getGroup().getGroup_id()==id && egu.isOrganizer())
                 futureEventsList.add(egu);
-            else if(res<0 && egu.getGroup().getGroup_id()==id)
+            else if(res<0 && egu.getGroup().getGroup_id()==id && egu.isOrganizer())
                 pastEventsList.add(egu);
         }
 
         model.addAttribute("grp",group);
         model.addAttribute("groupSize",users.size());
         model.addAttribute("admin",admin);
-        model.addAttribute("isUserAdmin",isUserAdmin);
+        model.addAttribute("isMember",isMember);
         model.addAttribute("members",users);
         model.addAttribute("pastEvents",pastEventsList);
         model.addAttribute("futureEvents",futureEventsList);
@@ -137,12 +142,20 @@ public class GroupController {
     @GetMapping("/group/delete")
     public String deleteGroup(long id){
         List<Group_User> groupUserList = groupUserRepository.findAll();
+
+        List<EventGroupUser> events = eventGroupUserRepository.findAll();
+        for(EventGroupUser event: events){
+            if(event.getGroup().getGroup_id()==id)
+                eventGroupUserRepository.delete(event);
+        }
+
         for(Group_User g: groupUserList){
             if(g.getGroup().getGroup_id()==id){
                 groupUserRepository.delete(g);
             }
         }
         groupsRepository.deleteById(id);
+
 
         return "redirect:/group/manage";
     }
@@ -158,7 +171,9 @@ public class GroupController {
         group_user.setGroup(group);
         groupUserRepository.save(group_user);
 
-        return "redirect:/group/manage";
+        String url = "redirect:/group/"+group.getName()+"/group?id="+id;
+
+        return url;
     }
 
     @GetMapping("/group/leave")
